@@ -1,0 +1,907 @@
+<div class="comparisonTable page-width">
+  <div class="tablemodule">
+    <div class="heading-content">
+      {% if section.settings.section_heading != nill %}
+        <h2>{{ section.settings.section_heading }}</h2>
+      {% endif %}
+      {% if section.settings.section_description != nill %}
+        <p>{{ section.settings.section_description }}</p>
+      {% endif %}
+      
+    </div>
+    <div class="bm-table-container">
+      <table class="tablemodule-table" cellspacing="0" cellpadding="0">
+        <tbody>
+          <tr class="tablemodule-imagerows">
+            {% if section.settings['tablemodule-image1'] != blank
+              or section.settings['tablemodule-text1'] != blank
+            %}
+              <th class="tablemodule-image cell_Primary_color pdp-module">
+                <div class="tableheader_wrapper">
+                  {% if section.settings['tablemodule-image1'] != blank %}
+                    <div class="icon">
+                      <img
+                        src="{{ section.settings.tablemodule-image1 | img_url: 'master' }}"
+                      >
+                    </div>
+                  {% endif %}
+                  {% if section.settings['tablemodule-text1'] != blank %}
+                    <p>{{ section.settings['tablemodule-text1'] }}</p>
+                  {% endif %}
+                </div>
+              </th>
+            {% endif %}
+            {% if section.settings['tablemodule-image2'] != blank
+              or section.settings['tablemodule-text2'] != blank
+            %}
+              <th class="tablemodule-image">
+                <div class="tableheader_wrapper">
+                  {% if section.settings['tablemodule-image2'] != blank %}
+                    <div class="icon">
+                      <img
+                        src="{{ section.settings.tablemodule-image2 | img_url: 'master' }}"
+                        width="50px"
+                      >
+                    </div>
+                  {% endif %}
+                  {% if section.settings['tablemodule-text2'] != blank %}
+                    <p>{{ section.settings['tablemodule-text2'] }}</p>
+                  {% endif %}
+                </div>
+              </th>
+            {% endif %}
+            {% if section.settings['tablemodule-image3'] != blank
+              or section.settings['tablemodule-text3'] != blank
+            %}
+              <th class="tablemodule-image">
+                <div class="tableheader_wrapper">
+                  {% if section.settings['tablemodule-image3'] != blank %}
+                    <div class="icon">
+                      <img
+                        src="{{ section.settings.tablemodule-image3 | img_url: 'master' }}"
+                        width="50px"
+                      >
+                    </div>
+                  {% endif %}
+                  {% if section.settings['tablemodule-text3'] != blank %}
+                    <p>{{ section.settings['tablemodule-text3'] }}</p>
+                  {% endif %}
+                </div>
+              </th>
+            {% endif %}
+            {% if section.settings['tablemodule-image4'] != blank
+              or section.settings['tablemodule-text4'] != blank
+            %}
+              <th class="tablemodule-image">
+                <div class="tableheader_wrapper">
+                  {% if section.settings['tablemodule-image4'] != blank %}
+                    <div class="icon">
+                      <img
+                        src="{{ section.settings.tablemodule-image4 | img_url: 'master' }}"
+                        width="50px"
+                      >
+                    </div>
+                  {% endif %}
+                  {% if section.settings['tablemodule-text4'] != blank %}
+                    <p>{{ section.settings['tablemodule-text4'] }}s</p>
+                  {% endif %}
+                </div>
+              </th>
+            {% endif %}
+            {% if section.settings['tablemodule-image5'] != blank
+              or section.settings['tablemodule-text5'] != blank
+            %}
+              <th class="tablemodule-image">
+                <div class="tableheader_wrapper">
+                  {% if section.settings['tablemodule-image5'] != blank %}
+                    <div class="icon">
+                      <img
+                        src="{{ section.settings.tablemodule-image5 | img_url: 'master' }}"
+                        width="50px"
+                      >
+                    </div>
+                  {% endif %}
+                  {% if section.settings['tablemodule-text5'] != blank %}
+                    <p>{{ section.settings['tablemodule-text5'] }}</p>
+                  {% endif %}
+                </div>
+              </th>
+            {% endif %}
+            {% if section.settings['tablemodule-image6'] != blank
+              or section.settings['tablemodule-text6'] != blank
+            %}
+              <th class="tablemodule-image">
+                <div class="tableheader_wrapper">
+                  {% if section.settings['tablemodule-image6'] != blank %}
+                    <div class="icon">
+                      <img
+                        src="{{ section.settings.tablemodule-image6 | img_url: 'master' }}"
+                        width="50px"
+                      >
+                    </div>
+                  {% endif %}
+                  {% if section.settings['tablemodule-text6'] != blank %}
+                    <p>{{ section.settings['tablemodule-text6'] }}</p>
+                  {% endif %}
+                </div>
+              </th>
+            {% endif %}
+            {% if section.settings['tablemodule-image7'] != blank
+              or section.settings['tablemodule-text7'] != blank
+            %}
+              <th class="tablemodule-image">
+                <div class="tableheader_wrapper">
+                  {% if section.settings['tablemodule-image7'] != blank %}
+                    <div class="icon">
+                      <img
+                        src="{{ section.settings.tablemodule-image7 | img_url: 'master' }}"
+                        width="50px"
+                      >
+                    </div>
+                  {% endif %}
+                  {% if section.settings['tablemodule-text7'] != blank %}
+                    <p>{{ section.settings['tablemodule-text7'] }}</p>
+                  {% endif %}
+                </div>
+              </th>
+            {% endif %}
+            {% if section.settings['tablemodule-image8'] != blank
+              or section.settings['tablemodule-text8'] != blank
+            %}
+              <th class="tablemodule-image">
+                <div class="tableheader_wrapper">
+                  {% if section.settings['tablemodule-image8'] != blank %}
+                    <div class="icon">
+                      <img
+                        src="{{ section.settings.tablemodule-image8 | img_url: 'master' }}"
+                        width="50px"
+                      >
+                    </div>
+                  {% endif %}
+                  {% if section.settings['tablemodule-text8'] != blank %}
+                    <p>{{ section.settings['tablemodule-text8'] }}</p>
+                  {% endif %}
+                </div>
+              </th>
+            {% endif %}
+            {% if section.settings['tablemodule-image9'] != blank
+              or section.settings['tablemodule-text9'] != blank
+            %}
+              <th class="tablemodule-image">
+                <div class="tableheader_wrapper">
+                  {% if section.settings['tablemodule-image9'] != blank %}
+                    <div class="icon">
+                      <img
+                        src="{{ section.settings.tablemodule-image9 | img_url: 'master' }}"
+                        width="50px"
+                      >
+                    </div>
+                  {% endif %}
+                  {% if section.settings['tablemodule-text9'] != blank %}
+                    <p>{{ section.settings['tablemodule-text9'] }}</p>
+                  {% endif %}
+                </div>
+              </th>
+            {% endif %}
+          </tr>
+          {% for block in section.blocks %}
+            <tr class="tablemodule-row">
+              {% if block.settings.keyhead != blank %}
+                <th class="tablemodule-keyhead">
+                  <span class="a-color-secondary"> {{ block.settings.keyhead }} </span>
+                </th>
+              {% endif %}
+              {% if block.settings['col-1-icon_image'] %}
+                <td class="tablemodule-valuecell cell_Primary_color">
+                  <span class="a-size-base {{ block.settings.image_cell_class }}">
+                    <img src="{{ block.settings.col-1-icon_image | img_url: 'master' }}"
+                  ></span>
+                  <span class="a-size-base mobile_icon">
+                    <img src="{{ block.settings.col-1-icon_image_mobile | img_url: 'master' }}"
+                  ></span>
+                </td>
+              {% elsif block.settings['col-1_text'] %}
+                <td class="tablemodule-valuecell cell_Primary_color">
+                  <p>{{ block.settings['col-1_text'] }}</p>
+                </td>
+              {% endif %}
+              {% if block.settings['col-2-icon_image'] %}
+                <td class="tablemodule-valuecell">
+                  <span class="a-size-base {{ block.settings.image_cell_class }}">
+                    <img src="{{ block.settings.col-2-icon_image | img_url: 'master' }}"
+                  ></span>
+                  <span class="a-size-base mobile_icon">
+                    <img src="{{ block.settings.col-2-icon_image_mobile | img_url: 'master' }}"
+                  ></span>
+                </td>
+              {% elsif block.settings['col-2_text'] %}
+                <td class="tablemodule-valuecell">
+                  <p>{{ block.settings['col-2_text'] }}</p>
+                </td>
+              {% endif %}
+              {% if block.settings['col-3-icon_image'] %}
+                <td class="tablemodule-valuecell">
+                  <span class="a-size-base {{ block.settings.image_cell_class }}">
+                    <img src="{{ block.settings.col-3-icon_image | img_url: 'master' }}"
+                  ></span>
+                  <span class="a-size-base mobile_icon">
+                    <img src="{{ block.settings.col-3-icon_image_mobile | img_url: 'master' }}"
+                  ></span>
+                </td>
+              {% elsif block.settings['col-3_text'] %}
+                <td class="tablemodule-valuecell">
+                  <p>{{ block.settings['col-3_text'] }}</p>
+                </td>
+              {% endif %}
+              {% if block.settings['col-4-icon_image'] %}
+                <td class="tablemodule-valuecell">
+                  <span class="a-size-base {{ block.settings.image_cell_class }}">
+                    <img src="{{ block.settings.col-4-icon_image | img_url: 'master' }}"
+                  ></span>
+                  <span class="a-size-base mobile_icon">
+                    <img src="{{ block.settings.col-4-icon_image_mobile | img_url: 'master' }}"
+                  ></span>
+                </td>
+              {% elsif block.settings['col-4_text'] %}
+                <td class="tablemodule-valuecell">
+                  <p>{{ block.settings['col-4_text'] }}</p>
+                </td>
+              {% endif %}
+              {% if block.settings['col-5-icon_image'] %}
+                <td class="tablemodule-valuecell">
+                  <span class="a-size-base {{ block.settings.image_cell_class }}">
+                    <img src="{{ block.settings.col-5-icon_image | img_url: 'master' }}"
+                  ></span>
+                  <span class="a-size-base mobile_icon">
+                    <img src="{{ block.settings.col-5-icon_image_mobile | img_url: 'master' }}"
+                  ></span>
+                </td>
+                {% elsif block.settings['col-5_text'] %}
+                <td class="tablemodule-valuecell">
+                  <p>{{ block.settings['col-5_text'] }}</p>
+                </td>
+              {% endif %}
+              {% if block.settings['col-6-icon_image'] %}
+                <td class="tablemodule-valuecell">
+                  <span class="a-size-base {{ block.settings.image_cell_class }}">
+                    <img src="{{ block.settings.col-6-icon_image | img_url: 'master' }}"
+                  ></span>
+                  <span class="a-size-base mobile_icon">
+                    <img src="{{ block.settings.col-1-icon_image_mobile | img_url: 'master' }}"
+                  ></span>
+                </td>
+              {% endif %}
+              {% if block.settings['col-7-icon_image'] %}
+                <td class="tablemodule-valuecell">
+                  <span class="a-size-base">
+                    <img src="{{ block.settings.col-7-icon_image | img_url: 'master' }}"
+                  ></span>
+                </td>
+              {% endif %}
+              {% if block.settings['col-8-icon_image'] %}
+                <td class="tablemodule-valuecell">
+                  <span class="a-size-base">
+                    <img src="{{ block.settings.col-8-icon_image | img_url: 'master' }}"
+                  ></span>
+                </td>
+              {% endif %}
+              {% if block.settings['col-9-icon_image'] %}
+                <td class="tablemodule-valuecell">
+                  <span class="a-size-base">
+                    <img src="{{ block.settings.col-9-icon_image | img_url: 'master' }}"
+                  ></span>
+                </td>
+              {% endif %}
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+{% style %}
+      .comparisonTable .heading-content h2{
+        font-size:{{section.settings.heading_size}}px;
+        text-align: {{section.settings.text_align}};
+        margin:0;
+        margin-bottom:16px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 140%;
+      }
+      .comparisonTable .heading-content p{
+        font-size:{{section.settings.text_size}}px;
+         margin-bottom:40px !important;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 140%;
+        text-align: {{section.settings.text_align}};
+      }
+      #shopify-section-{{ section.id }}{
+          background-color: {{section.settings.section_background}};
+          padding:{{section.settings.section_padding}};
+      }
+      #shopify-section-{{ section.id }} .tablemodule-valuecell.cell_Primary_color,
+      #shopify-section-{{ section.id }} .tablemodule-image.cell_Primary_color{
+          background-color: {{section.settings.cell_Primary_color}};
+          border-bottom-color: {{ section.settings.selected_border_color }};
+      }
+      #shopify-section-{{ section.id }} .tablemodule-valuecell.cell_Primary_color p{
+        color: {{ section.settings.Selected_content_color }};
+      }
+      #shopify-section-{{ section.id }} .tablemodule table td, #shopify-section-{{ section.id }} .tablemodule-row th{
+        border-bottom: 1px solid {{ section.settings.unselected_border_color }};
+        border-right:1px solid {{ section.settings.unselected_border_color }};
+      }
+      /* #shopify-section-{{ section.id }}  .tablemodule table{
+       border-top: 1px solid {{ section.settings.unselected_border_color }};
+      } */
+      table.tablemodule-table tr{
+        height:70px;
+      }
+     .tablemodule-valuecell {
+         padding: 10px;
+         min-width:193px;
+      }
+    .tablemodule .icon {
+        max-width: 45px;
+        margin-left: auto;
+         margin-right: auto;
+        height: 80px;
+        display: flex;
+        align-items: center;
+      }
+       th.tablemodule-image {
+          padding: 10px;
+      }
+
+      #shopify-section-{{ section.id }} th.tablemodule-keyhead {
+              padding: 10px;
+      }
+    #shopify-section-{{ section.id }} th.tablemodule-image:last-of-type, #shopify-section-{{ section.id }} .tablemodule table td:last-of-type {
+       border-right: 1px solid {{ section.settings.unselected_border_color }};
+    }
+      .tablemodule-valuecell span {
+              width: 22px;
+              margin: auto;
+              display: block;
+      }
+      
+      .tablemodule-valuecell .our-proprietary-image{
+        width: 125px;
+      }
+      .tablemodule-valuecell .our-proprietary-image+.mobile_icon{
+        width:125px;
+        display:none;
+      }
+      .tablemodule-valuecell:nth-child(5) .our-proprietary-image{
+        width:82px;
+      }
+
+     .tablemodule-valuecell span img {
+              width: 100%;
+            display:block;
+          }
+           #shopify-section-{{ section.id }} .tablemodule-image p {
+              font-size: 18px;
+              font-style: normal;
+              font-weight: 700;
+              line-height: 24px; /* 133.333% */
+              color: {{ section.settings.unselected_content_color }};
+            
+          }
+      .tablemodule table td:last-of-type, th.tablemodule-image:last-of-type{
+            padding-right:30px;
+          }
+        th.tablemodule-keyhead{
+            padding-left:25px !important;
+            
+          }
+        th.tablemodule-keyhead{
+              max-width: 280px;
+        }
+        .tableheader_wrapper{
+           align-items: center;
+          }
+     /* #shopify-section-{{ section.id }} .tablemodule-valuecell p, #shopify-section-{{ section.id }} .tablemodule-keyhead .a-color-secondary {
+       color: {{ section.settings.unselected_content_color }};
+    } */
+          .tablemodule .tableheader_wrapper {
+              display: flex;
+              flex-direction: column;
+              gap: 25px;
+            align-items:center;
+          }
+
+          .tablemodule-row .tablemodule-keyhead {
+              text-align: left;
+          }
+
+          .tablemodule-keyhead .a-color-secondary {
+              
+              font-size: 16px;
+              font-style: normal;
+              font-weight: 400;
+              line-height: 20px; /* 125% */
+          }
+
+          .cell_secondry_color {
+              background-color: aliceblue;
+          }
+
+          .cell_transparent_color {
+              background-color: transparent;
+          }
+
+
+    /*   slider for table */
+    .bm-table-container .tablemodule-table {
+        margin-bottom: 0px;
+    }
+    .bm-table-container {
+        overflow: auto;
+        border-image: initial;
+    }
+    .comparisonTable .bm-seeMore{
+        margin-top: -47px;
+        max-width: 100px;
+    }
+     .arrow_text{
+           font-family: 'Futura Md BT';
+    }
+    tr.tablemodule-imagerows> th {
+       border-bottom: 1px solid #E5E5E5;
+      border-right: 1px solid #E5E5E5;
+     }
+        /*   end slider table */
+        @media(min-width:1140px){
+          
+    tr.tablemodule-imagerows> th {
+          position: sticky;
+          top: 101px;
+          box-sizing: border-box;
+          background: #ffffff;
+      }
+    }
+    @media(max-width:1140px){
+      .tablemodule-table>tbody>tr>th:nth-child(1) {
+        position: sticky !important;
+        background: rgb(255, 255, 255);
+        left: 0px;
+        z-index: 1;
+    }
+    }
+     @media(min-width:1140px){
+      .bm-table-container {
+        overflow: visible !important;
+    }
+     }
+    .tableheader_wrapper p{
+        min-height:38px;
+      }
+  @media (max-width:740px) {
+    .tablemodule-valuecell .our-proprietary-image+.mobile_icon{
+        width:39px;
+        display:block;
+      }
+    .tablemodule-valuecell .our-proprietary-image{
+        display:none;
+      }
+    .tablemodule-valuecell{
+             min-width: 116px;
+    }
+    .comparisonTable {
+    padding-bottom: 2em;
+  }
+    .tablemodule .icon{
+        height: 55px;
+    }
+    .tablemodule .tableheader_wrapper{
+      gap: 10px;
+    }
+   h2, h2+p{
+         text-align: left !important;
+    margin-top: 10px;
+    margin-bottom: 30px;
+    }
+     #shopify-section-{{ section.id }} h2+p{
+       margin-bottom: 20px;
+     }
+  .tablemodule .slideBack,  .tablemodule .slidenext{
+          max-width: 50px;
+  
+    }
+    .tablemodule .slideBack{
+        margin-right: 17px;
+    }
+    .bm-table-container {
+        margin-right: -20px;
+    }
+    .comparisonTable h2 +p{
+      line-height: 17px;
+    }
+    #shopify-section-{{ section.id }}{
+       padding-top: 34px;
+    padding-bottom: 15px;
+    }
+    .tablemodule-table>tbody>tr>th:nth-child(1) {
+            position: sticky;
+            background: rgb(255, 255, 255);
+            left: 0px;
+        }
+
+     .bm-hide-tableData{
+              display: none;
+            }
+      .tablemodule .slide-button {
+        display: flex;
+        align-items:flex-start;
+        justify-content: center;
+        margin-bottom: 20px;
+        margin-top: 20px;
+        gap: 5px;
+        max-width: 188px;
+        margin-left: auto;
+    }
+    .tablemodule .slide-button span {
+        display: inline-block;
+        font-size: 20px;
+        cursor: pointer;
+        width: 100%;
+      line-height:16px;
+    }
+    }
+    @media(min-width:741px){
+        .comparisonTable .bm-seeMore{
+          display:none;
+          position: sticky;
+          left: 11px;
+        }
+        .tablemodule .slide-button{
+          display:none;
+    }
+  }
+
+  #shopify-section-{{ section.id }} .bm-table-container {
+       border-left: 1px solid {{ section.settings.unselected_border_color }};
+  }
+{% endstyle %}
+{% schema %}
+{
+  "name": "comparison table",
+  "class": "custome_table",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "color",
+        "id": "section_background",
+        "label": "Background Color"
+    },
+    {
+        "type": "text",
+        "id": "section_padding",
+        "label": "Paddings (top right bottom left)",
+        "info": "6rem 6rem 0 6rem"
+      },
+    
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "text",
+      "id": "section_heading",
+      "label": "Section Heading"
+    },
+       {
+      "type": "textarea",
+      "id": "section_description",
+      "label": "Section Description"
+    },
+    
+    {
+      "type": "header",
+      "content": "Caption styles"
+    },
+    {
+        "type": "color",
+        "id": "Heading_color",
+        "label": "Main-Heading Color"
+    },
+    {
+        "type": "color",
+        "id": "description_color",
+        "label": "Section Description Color"
+    },
+        
+        
+     {
+        "type": "color",
+        "id": "unselected_border_color",
+        "label": "Unselected Content Border Color",
+        "default": "#393838"
+    },
+   {
+        "type": "color",
+        "id": "Selected_content_color",
+        "label": "Selected Content Color",
+        "default": "#393838"
+    },
+     {
+        "type": "color",
+        "id": "selected_border_color",
+        "label": "Selected Content Border Color",
+        "default": "#393838"
+    },
+    
+    {
+      "type": "header",
+      "content": "Appearance"
+    },
+    {
+      "type": "select",
+      "id": "text_align",
+      "label": "Text alignment",
+      "default": "left",
+      "info":"Center aligns below image on mobile",
+      "options":
+      [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ]
+    },
+    {
+      "type": "range",
+      "id": "heading_size",
+      "min": 13,
+      "max": 72,
+      "step": 1,
+      "unit": "px",
+      "label": "Heading size",
+      "default": 22
+    },
+    {
+      "type": "range",
+      "id": "text_size",
+      "min": 13,
+      "max": 72,
+      "step": 1,
+      "unit": "px",
+      "label": "Text size",
+      "default": 22
+    },
+    {
+      "type": "color",
+      "id": "cell_Primary_color",
+      "label": "Cell Primary Color"
+    },
+    
+    {
+      "type": "image_picker",
+      "id": "tablemodule-image1",
+      "label": "Tablemodule Image col 1"
+    },
+    {
+      "type": "text",
+      "id": "tablemodule-text1",
+      "label": "Tablemodule Text col 1"
+    },
+    {
+      "type": "image_picker",
+      "id": "tablemodule-image2",
+      "label": "Tablemodule Image col 2"
+    },
+    {
+      "type": "text",
+      "id": "tablemodule-text2",
+      "label": "Tablemodule Text col 2"
+    },
+        {
+      "type": "image_picker",
+      "id": "tablemodule-image3",
+      "label": "Tablemodule Image col 3"
+    },
+    {
+      "type": "text",
+      "id": "tablemodule-text3",
+      "label": "Tablemodule Text col 3"
+    },
+    {
+      "type": "image_picker",
+      "id": "tablemodule-image4",
+      "label": "Tablemodule Image col 4"
+    },
+    {
+      "type": "text",
+      "id": "tablemodule-text4",
+      "label": "Tablemodule Text col 4"
+    },
+    {
+      "type": "image_picker",
+      "id": "tablemodule-image5",
+      "label": "Tablemodule Image col 5"
+    },
+    {
+      "type": "text",
+      "id": "tablemodule-text5",
+      "label": "Tablemodule Text col 5"
+    },
+    {
+      "type": "image_picker",
+      "id": "tablemodule-image6",
+      "label": "Tablemodule Image col 6"
+    },
+    {
+      "type": "text",
+      "id": "tablemodule-text6",
+      "label": "Tablemodule Text col 6"
+    },
+        {
+      "type": "image_picker",
+      "id": "tablemodule-image7",
+      "label": "Tablemodule Image col 7"
+    },
+    {
+      "type": "text",
+      "id": "tablemodule-text7",
+      "label": "Tablemodule Text col 7"
+    },
+        {
+      "type": "image_picker",
+      "id": "tablemodule-image8",
+      "label": "Tablemodule Image col 8"
+    },
+    {
+      "type": "text",
+      "id": "tablemodule-text8",
+      "label": "Tablemodule Text col 8"
+    },
+     {
+      "type": "image_picker",
+      "id": "tablemodule-image9",
+      "label": "Tablemodule Image col 9"
+    },
+    {
+      "type": "text",
+      "id": "tablemodule-text9",
+      "label": "Tablemodule Text col 9"
+    }
+  ],
+   "blocks": [
+     {
+       "name": "Compression Row",
+       "type": "compressionRow",
+       "settings": [
+          {
+         "type": "text",
+         "id": "keyhead",
+         "label": "Table Keyhead"
+         },
+        {
+         "type": "image_picker",
+         "id": "col-1-icon_image",
+         "label": "Col 1 Icon Image"
+         },
+         {
+         "type": "image_picker",
+         "id": "col-1-icon_image_mobile",
+         "label": "Col 1 Icon Image Mobile"
+         },
+         {
+         "type": "text",
+         "id": "col-1_text",
+         "label": "Col 1 Text"
+         },
+         {
+         "type": "image_picker",
+         "id": "col-2-icon_image",
+         "label": "Col 2 Icon Image"
+         },
+         {
+         "type": "image_picker",
+         "id": "col-2-icon_image_mobile",
+         "label": "Col 2 Icon Image Mobile"
+         },
+          {
+         "type": "text",
+         "id": "col-2_text",
+         "label": "Col 2 Text"
+         },
+          {
+         "type": "image_picker",
+         "id": "col-3-icon_image",
+         "label": "Col 3 Icon Image"
+         },
+         {
+         "type": "image_picker",
+         "id": "col-3-icon_image_mobile",
+         "label": "Col 3 Icon Image Mobile"
+         },
+          {
+         "type": "text",
+         "id": "col-3_text",
+         "label": "Col 3 Text"
+         },
+          {
+         "type": "image_picker",
+         "id": "col-4-icon_image",
+         "label": "Col 4 Icon Image"
+         },
+         {
+         "type": "image_picker",
+         "id": "col-4-icon_image_mobile",
+         "label": "Col 4 Icon Image Mobile"
+         },
+          {
+         "type": "text",
+         "id": "col-4_text",
+         "label": "Col 4 Text"
+         },
+          {
+         "type": "image_picker",
+         "id": "col-5-icon_image",
+         "label": "Col 5 Icon Image"
+         },
+         {
+         "type": "image_picker",
+         "id": "col-5-icon_image_mobile",
+         "label": "Col 5 Icon Image Mobile"
+         },
+         {
+           "type": "text",
+         "id": "col-5_text",
+         "label": "Col 5 Text"
+         },
+          {
+         "type": "image_picker",
+         "id": "col-6-icon_image",
+         "label": "Col 6 Icon Image"
+         },
+          {
+         "type": "image_picker",
+         "id": "col-7-icon_image",
+         "label": "Col 7 Icon Image"
+         },
+          {
+         "type": "image_picker",
+         "id": "col-8-icon_image",
+         "label": "Col 8 Icon Image"
+         },
+          {
+         "type": "image_picker",
+         "id": "col-9-icon_image",
+         "label": "Col 9 Icon Image"
+         },
+          {
+         "type": "image_picker",
+         "id": "col-10-icon_image",
+         "label": "Col 10 Icon Image"
+         },
+         {
+          "type": "text",
+         "id": "image_cell_class",
+         "label": "Image Cell Class"
+         }
+         ]
+        }
+   ],
+     "presets": [
+     {
+      "name": "comparison table",
+       "settings": {
+        }
+     }
+   ]
+}
+{% endschema %}

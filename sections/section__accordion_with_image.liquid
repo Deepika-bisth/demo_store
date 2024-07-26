@@ -1,0 +1,492 @@
+<div class="whats-new-section">
+    <div class="container">
+        <div class="row">
+            <div class="rich__heading align--center">
+                <h4 class="size--32">{{ section.settings.main_section_heading }}</h4>
+            </div>
+            <div class="rich-content size--20 no-button">
+                <p>{{ section.settings.main_section_description }}</p>
+            </div>
+            <div class="whats-inside">
+              {% if section.settings.cloud_image != blank %}
+                <img class="cloud-img" src="{{ section.settings.cloud_image | img_url: 'master' }}" alt="{{ section.settings.cloud_image_alt }}">
+              {% endif %}
+                <div class="rich__heading align--center">
+                  <h4 class="size--32">{{ section.settings.section_title }}</h4>
+                </div>
+              
+                <div class="accordian-container">
+                  <div class="accordian-question">
+                    <ul class="question-list">
+                      {% for block in section.blocks %}
+                      <li class="box{% if forloop.first %} active{% endif %}" data-id="option-{{ forloop.index }}">
+                        <div class="question">
+                          <p class="question__text"><span>{{ forloop.index }}</span> {{ block.settings.item_title }}
+                        <svg class="down_arrow" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                          <path d="M3.39998 6.83311C3.55832 6.83311 3.71665 6.89144 3.84165 7.01644L9.27498 12.4498C9.67498 12.8498 10.325 12.8498 10.725 12.4498L16.1583 7.01644C16.4 6.77477 16.8 6.77477 17.0417 7.01644C17.2833 7.25811 17.2833 7.6581 17.0417 7.89977L11.6083 13.3331C10.725 14.2164 9.28332 14.2164 8.39165 13.3331L2.95832 7.89977C2.71665 7.6581 2.71665 7.25811 2.95832 7.01644C3.08332 6.89977 3.24165 6.83311 3.39998 6.83311Z" fill="#37373C"/>
+                        </svg>
+                        </p>
+                        </div>
+                        <div class="answer">
+                          <p class="answer__text">
+                            {% for i in (1..5) %}
+                            {% assign desc_key = 'description_' | append: i %}
+                            {% assign icon_key = 'description_icon_' | append: i %}
+                            {% assign icon_alt_key = 'description_icon_alt_' | append: i %}
+                            {% if block.settings[desc_key] != blank %}
+                            <span>
+                                {% if block.settings[icon_key]!= blank %}<img src="{{ block.settings[icon_key] | img_url: 'master' }}" alt="{{ block.settings[icon_alt_key] }}">{% endif %}
+                              {{ block.settings[desc_key] }}
+                            </span>
+                            {% endif %}
+                            {% endfor %}
+                          </p>
+                        </div>
+                      </li>
+                      {% endfor %}
+                    </ul>
+                  </div>
+              
+                  <div class="accordian-image">
+                    {% for block in section.blocks %}
+                    <img class="option-{{ forloop.index }}{% if forloop.first %} active{% endif %}" src="{{ block.settings.image | img_url: 'master' }}" alt="{{ block.settings.image_alt }}">
+                    {% endfor %}
+                  </div>
+                  
+                  
+                </div>
+                {% comment %} Shop All Link {% endcomment %}
+                {% if section.settings.button_text!=blank %}
+                <div class="row row-med u-center">
+                    <a href="{{ section.settings.shop_all }}" class="button shop-all">
+                         {{ section.settings.button_text }}
+                    </a>
+                </div>
+                  {% endif %}
+              </div>
+        </div>
+    </div>
+</div>
+         
+{% schema %}
+{
+  "name": "Accordion with Image",
+  "settings": [
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Top padding Desktop",
+      "min":0,
+      "max":80,
+      "step": 2,
+      "default":20
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Bottom padding Desktop",
+      "default": 20,
+      "min":0,
+      "step": 2,
+      "max":80
+    },
+       {
+      "type": "range",
+      "id": "padding_top_mob",
+      "label": "Top padding Mobile",
+      "min":0,
+      "max":80,
+      "step": 2,
+      "default":0
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mob",
+      "label": "Bottom padding Mobile",
+      "default": 0,
+      "min":0,
+      "step": 2,
+      "max":80
+    },
+    {
+      "type": "image_picker",
+      "id": "cloud_image",
+      "label": "Cloud Image"
+    },
+    {
+      "type": "text",
+      "id": "cloud_image_alt",
+      "label": "Cloud Image Alt Text"
+    },
+    {
+      "type": "text",
+      "id": "main_section_heading",
+      "label": "Main Section Title"
+    },
+    {
+      "type": "text",
+      "id": "main_section_description",
+      "label": "Main Section Description"
+    },
+    {
+      "type": "text",
+      "id": "section_title",
+      "label": "Section Title"
+    },
+     {
+      "type": "url",
+      "id": "shop_all",
+      "label": "Shop All Link"
+    },
+      {
+      "type": "text",
+      "id": "button_text",
+      "label": "Shop All Text"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "accordion_item",
+      "name": "Accordion Item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "item_title",
+          "label": "Item Title"
+        },
+        {
+          "type": "image_picker",
+          "id": "description_icon_1",
+          "label": "Description Icon 1"
+        },
+        {
+          "type": "text",
+          "id": "description_icon_alt_1",
+          "label": "Description Icon Alt Text 1"
+        },
+        {"type": "text",
+          "id": "description_1",
+          "label": "Description Text 1"
+        },
+        {
+          "type": "image_picker",
+          "id": "description_icon_2",
+          "label": "Description Icon 2"
+        },
+        {
+          "type": "text",
+          "id": "description_icon_alt_2",
+          "label": "Description Icon Alt Text 2"
+        },
+        {"type": "text",
+          "id": "description_2",
+          "label": "Description Text 2"
+        },
+         {
+          "type": "image_picker",
+          "id": "description_icon_3",
+          "label": "Description Icon 3"
+        },
+        {
+          "type": "text",
+          "id": "description_icon_alt_3",
+          "label": "Description Icon Alt Text 3"
+        },
+        {"type": "text",
+          "id": "description_3",
+          "label": "Description Text 3"
+        },
+          {
+          "type": "image_picker",
+          "id": "description_icon_4",
+          "label": "Description Icon 4"
+        },
+        {
+          "type": "text",
+          "id": "description_icon_alt_4",
+          "label": "Description Icon Alt Text 4"
+        },
+        {"type": "text",
+          "id": "description_4",
+          "label": "Description Text 4"
+        },
+           {
+          "type": "image_picker",
+          "id": "description_icon_5",
+          "label": "Description Icon 5"
+        },
+        {
+          "type": "text",
+          "id": "description_icon_alt_5",
+          "label": "Description Icon Alt Text 5"
+        },
+        {"type": "text",
+          "id": "description_5",
+          "label": "Description Text 5"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Accordion Image"
+        },
+        {
+          "type": "text",
+          "id": "image_alt",
+          "label": "Accordion Image Alt Text"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Accordion with Image",
+      "category": "Custom"
+    }
+  ],
+  "max_blocks": 5
+}
+{% endschema %}
+{% javascript %}
+  
+document.querySelectorAll('.accordian-container .question').forEach(function (question) {
+    question.addEventListener('click', function () {
+        // Remove 'active' class from all 'question' elements
+        document.querySelectorAll('.accordian-container .active').forEach(function (activeQuestion) {
+            activeQuestion.classList.remove('active');
+        });
+        this.parentNode.classList.add('active');
+        var id = this.parentNode.getAttribute('data-id');       
+        document.querySelectorAll('.accordian-image img').forEach(function (activeImage) {
+            activeImage.classList.remove('active');
+        });
+        var targetImages = document.querySelectorAll('.accordian-image .' + id);
+        targetImages.forEach(function (targetImage) {
+            targetImage.classList.add('active');          
+        });
+       
+    });
+});
+  
+{% endjavascript %}
+{% style %}
+/* Whats New  */
+  #shopify-section-{{ section.id }}{
+    padding-top: {{section.settings.padding_top}}px;
+    padding-bottom:{{section.settings.padding_bottom}}px;
+  }
+  @media(max-width:768px){
+      #shopify-section-{{ section.id }}{
+    padding-top: {{section.settings.padding_top_mob}}px;
+    padding-bottom:{{section.settings.padding_bottom_mob}}px;
+  }
+  }
+.whats-new-section .container {
+    max-width: 1320px;
+    width: 100%;
+  margin:auto;
+}
+.accordian-container {
+    display: flex;
+    gap: 40px;
+    width: 100%;
+}
+.whats-new-section h4 {
+    text-align: center;
+  color: #37373C;
+font-size: 32px;
+font-style: normal;
+font-weight: 400;
+line-height: 40px; /* 125% */
+}
+  .whats-new-section .whats-inside h4{
+     padding-bottom: 0 !important;
+  }
+.whats-new-section .container .rich-content p {
+    text-align: center;
+    max-width: 720px;
+    margin-bottom: 36px;
+}
+.accordian-image > img:not(.active) {
+    display: none;
+}
+.whats-inside {
+    border-radius: 20px;
+    background: #DAE0E0;
+    display: flex;
+    padding: 40px;
+    flex-direction: column;
+    align-items: center;
+    gap: 36px;
+    position: relative;
+}
+.whats-inside .cloud-img {
+    position: absolute;
+    top: -23px;
+    right: 30px;
+}
+/* .whats-new-section {
+    padding-top: 40px;
+    padding-bottom: 40px;
+} */
+.accordian-container .question-list > li {
+    background: #FFF;
+    display: flex;
+    flex-direction: column;
+}
+.accordian-container .question-list > li:nth-child(1) {
+    border-radius: 16px 16px 0px 0px;
+}
+.accordian-container .question-list > li:not(:last-child) {
+    margin-bottom: 12px;
+}
+.accordian-container .question-list > li:last-child {
+    border-radius: 0px 0px 16px 16px;
+}
+.accordian-container .box .answer {
+    max-height: 0px;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 750ms ease-in-out, opacity 750ms ease-in-out, overflow 750ms ease-in-out;
+}
+.accordian-container .box.active .question + .answer {
+    max-height: 600px;
+    opacity: 1;
+    overflow: visible;
+    transition: max-height 750ms ease-in-out, opacity 750ms ease-in-out, overflow 750ms ease-in-out;
+}
+.accordian-container > div {
+    width: 50%;
+}
+.accordian-container .answer__text {
+    margin-bottom: 0px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 0 20px 20px 20px;
+}
+.accordian-container .question__text {
+    cursor: pointer;
+    margin-bottom: 0px;
+    color: #000;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 28px;
+    display: flex;
+    align-items: center;
+    position:relative;
+}
+  .accordian-question .question .question__text .down_arrow{
+    position: absolute;
+    right: 0;
+
+}
+.accordian-container .accordian-image{
+    position: relative;
+}
+.accordian-container .accordian-image img {
+    width: 100%;
+    height: auto;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    object-fit: cover;
+    object-position: top center;
+    border-radius: 16px !important;
+}
+.accordian-container .question {
+    padding: 20px;
+    cursor: pointer;
+}
+.question__text span {
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+    display: inline-flex;
+    background: #DAE0E0;
+    align-items: center;
+    justify-content: center;
+    border-radius: 100%;
+    margin-right: 16px;
+    color: #000;
+    font-family: Crimson Text;
+    font-size: 26px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 28px;
+}
+.accordian-container .answer__text span {
+    color: #656565;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 26px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+@media screen and (max-width:1023px) {
+    .whats-inside .accordian-container {
+        flex-direction: column;
+    }
+    .whats-inside .accordian-container > div{
+        width: 100%;
+    }
+    .whats-inside .accordian-container .accordian-image img{
+        position: static;
+    }
+}
+@media screen and (max-width:767px) {
+html body .whats-new-section h4 {
+        font-size: 26px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 34px;
+        color: #37373C;
+        font-family: Crimson Text;
+}
+.whats-new-section .whats-inside {
+        padding: 32px 16px;
+}
+.whats-new-section .container .rich-content p {
+        margin-top: 16px;
+}
+.whats-new-section .accordian-container .question{
+        padding: 16px;
+}
+.whats-new-section .accordian-container .answer__text{
+        padding: 0 16px 16px 16px;
+}
+.whats-new-section .accordian-container .question__text {
+        font-size: 18px;
+        padding-right: 60px;
+}
+.whats-new-section .accordian-container .question__text span {
+        font-size: 25px;
+}
+.whats-new-section .whats-inside .cloud-img {
+        position: absolute;
+        top: -23px;
+        right: -10px;
+} 
+.whats-new-section{
+        padding-top: 32px;
+       padding-bottom: 32px;
+  }
+} 
+.whats-new-section .shop-all {
+  border-radius: 6px !important;
+    padding: 12px 40px;
+    color: #F0F3F4;
+    font-size: 18px;
+    line-height: 26px;
+}
+.question-list .box.active .down_arrow{
+  transform: rotate(180deg);
+}
+
+.whats-new-section img[alt="heart_shape"]{
+  max-width:40px;
+  width:100%;
+}
+{%endstyle%}

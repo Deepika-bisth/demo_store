@@ -1,0 +1,195 @@
+<!-- /sections/page.logo-list-with-slider.liquid -->
+<div class="logo-list-slider {{ section.settings.custom_class }}">
+    <div class="container">
+      <div class="section_header">
+        {% if section.settings.main_heading != blank %}
+          <h2 class="main_heading">{{ section.settings.main_heading }}</h2>
+        {% endif %}
+      </div>
+                
+      <div class="slider-icons">
+          {% if section.settings.use_navigation != blank %}
+             <div class="swiper-button-prev sw-button-prev-{{section.id}}"></div>
+             <div class="swiper-button-next sw-button-next-{{section.id}}"></div>
+           {% endif %}
+         </div>
+      {%- assign responsive_ = section.settings.responsive | strip_newlines | json | remove: '\t' | remove: '\' | remove: ' '
+        | replace: '"{"','{"' | replace: '}}"','}}' -%}
+         {%- assign items_ = responsive_ | split: '"slidesPerView":' | last | split: ',' | first | plus: 0 -%}
+      <swiper-slider>
+         <div class="swiper collection_swiper swiper-container"
+          data-dots="{{section.settings.use_dots}}" 
+          data-nav = "{{section.settings.use_navigation}}"
+          data-prev-el=".sw-button-prev-{{section.id}}"
+          data-next-el=".sw-button-next-{{section.id}}" 
+          data-pagination=".swiper-pagination-{{section.id}}"
+          data-breakpoints='{{responsive_}}' 
+          data-thumbs ="{{section.settings.use_thumnails}}"
+          data-thumbs-id = ".swiper-thumbs-{{section.id}}"
+          data-direction = "horizontal"
+           data-mousewheel= "true"
+           data-allow-touch-move="true"
+           
+        >
+          <!-- Additional required wrapper -->
+          <div class="swiper-wrapper">
+            {%- for block in section.blocks -%}
+              <div class="swiper-slide logo-list-slide {{ block.settings.custom_class }}">
+                          <div class="slide-content">
+                            {%- if block.settings.image != blank -%}
+                               <img src="{{ block.settings.image | img_url: 'x382' }}" alt="logo">
+                            {% endif %} 
+                            {% if block.settings.content != blank %}
+                                <p>{{ block.settings.content }}</p>
+                            {% endif %}
+                          </div>                
+              </div>
+            {%- endfor -%}
+        </div>
+          {% if section.settings.use_dots != blank %}
+           <!-- If we need pagination -->
+            <div class="swiper-pagination swiper-pagination-{{section.id}}"></div>
+           <!-- If we need scrollbar -->
+          {% endif %}
+         
+        </div>
+     </swiper-slider>
+      {% if section.settings.bottom_cta_content != blank %}
+      <div class="collection_bottom"><a href="{{ section.settings.bottom_cta_url }}" class="collection_cta btn">{{ section.settings.bottom_cta_content }}</a></div>
+        {% endif %}
+    </div>
+</div>
+
+{% style %}
+  .slide-content{
+    /* max-width:33px; */
+    display: flex;
+    align-items: center;
+    gap:16px;
+    justify-content: center;
+  }
+  .slide-content img{
+    width:100%;
+    max-width: 33px;
+  }
+  .logo-list-slider{
+    max-width: 1300px;
+    margin: auto;
+    border-radius: 20px;
+    background: var(--Color-Athens, #085DB8);
+    padding: 20px;
+  }
+  .logo-list-slider .main_heading{
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+    text-align:center;
+    text-transform: uppercase;
+  }
+  
+  .logo-list-slider .main_heading,
+  .logo-list-slider .slide-content p{
+    color:{{section.settings.content_color}};
+  }
+  .logo-list-slider .logo-list-slide.first-item .slide-content p{
+    font-size: 22px;
+    font-weight: 800;
+    line-height: 32px;
+    text-transform: uppercase;
+    margin: 0;
+  }
+    
+  @media (min-width:769px){
+     .logo-list-slider .main_heading{
+       display:none;
+     }
+  }
+  @media (max-width:768px){
+    .logo-list-slider .logo-list-slide.first-item{
+      display:none;
+    }
+    .logo-list-slider{
+      border-radius:0;
+    }
+  }
+{% endstyle %}
+{% schema %}
+{
+  "name": "logo list slider",
+  "tag": "section",
+  "settings": [
+    {
+           "type" : "text",
+          "id" : "main_heading",
+          "label": "Heading"  
+    },
+     {
+           "type" : "color",
+          "id" : "content_color",
+          "label": "Text Color"  
+    },
+     {
+        "type": "range",
+        "id": "slide_per_view",
+        "min": 0,
+        "max": 20,
+        "step": 1,
+        "label": "Slide Per View",
+        "default": 3
+      },
+      {
+        "type": "checkbox",
+        "id": "use_navigation",
+        "label": "__Use navigation?",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "use_thumnails",
+        "label": "__Use thumbnails?",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "use_dots",
+        "label": "__Use dots?"
+      },
+      {
+        "type": "textarea",
+        "id": "responsive",
+        "label": "== Responsive",
+        "default": "{\n  \"0\": {\n    \"slidesPerView\": 2.5,\n    \"spaceBetween\": 10\n  },\n  \"1200\": {\n    \"slidesPerView\": 5,\n    \"spaceBetween\": 30\n  }\n}"
+      }
+  ],
+  "blocks": [
+    
+    {
+      "type": "column",
+      "name": "item",
+      "settings": [
+        {
+           "type" : "text",
+          "id" : "custom_class",
+          "label": "Custom Class"  
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "item image"
+        },
+        {
+           "type" : "text",
+          "id" : "content",
+          "label": "Content"  
+    }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "logo list slider"
+    }
+  ]
+}
+{% endschema %}

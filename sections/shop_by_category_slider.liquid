@@ -1,0 +1,510 @@
+ <div class="category_collection_product {{ section.settings.custom_class }}">
+      <div class="container">
+        <div class="section_header">
+          {% if section.settings.main_heading != blank %}
+            <h2 class="main_heading">{{ section.settings.main_heading }}</h2>
+          {% endif %}
+          {% if section.settings.main_description != blank %}
+             <p>{{ section.settings.main_description }}</p>
+          {% endif %}
+        </div>
+        <div class="section_sub_header">
+          <h2 class="main_sub_heading">{{ section.settings.main_sub_heading }}</h2>
+           {% if section.settings.collection_button_desk != blank %}
+                <a href="{{ section.settings.collection_url_desk }}" class="collection_cta Desktop btn">{{ section.settings.collection_button_desk }}</a>
+            {% endif %}
+        </div>
+                  
+        <div class="slider-icons">
+            {% if section.settings.use_navigation != blank %}
+               <div class="swiper-button-prev sw-button-prev-{{section.id}}"></div>
+               <div class="swiper-button-next sw-button-next-{{section.id}}"></div>
+             {% endif %}
+           </div>
+        {%- assign responsive_ = section.settings.responsive | strip_newlines | json | remove: '\t' | remove: '\' | remove: ' '
+          | replace: '"{"','{"' | replace: '}}"','}}' -%}
+           {%- assign items_ = responsive_ | split: '"slidesPerView":' | last | split: ',' | first | plus: 0 -%}
+        <swiper-slider>
+           <div class="swiper collection_swiper swiper-container"
+            data-dots="{{section.settings.use_dots}}" 
+            data-nav = "{{section.settings.use_navigation}}"
+            data-prev-el=".sw-button-prev-{{section.id}}"
+            data-next-el=".sw-button-next-{{section.id}}" 
+            data-pagination=".swiper-pagination-{{section.id}}"
+            data-breakpoints='{{responsive_}}' 
+            data-thumbs ="{{section.settings.use_thumnails}}"
+            data-thumbs-id = ".swiper-thumbs-{{section.id}}"
+            data-direction = "horizontal"
+             data-mousewheel= "true"
+             data-allow-touch-move="true"
+             
+          >
+            <!-- Additional required wrapper -->
+            <div class="swiper-wrapper">
+              <!-- Slides -->
+              {% for block in section.blocks %}
+                <div class="swiper-slide">
+                  <div class="product_block">
+                    <a href="{{ block.settings.collection_url }}">
+                       <div class="product_image ">
+                       <img src="{{ block.settings.collection_image | img_url:'master' }}"> 
+                     </div>
+                      {% if block.settings.blog-date !=blank %}
+                      <div class="blog-date">{{ block.settings.blog-date }}</div>
+                      {% endif %}
+                      <div class="product_title">
+                        <h3>{{ block.settings.collection_title }}</h3>
+                {% if block.settings.collection_button != blank %}
+                        <a href="{{ block.settings.collection_url }}" class="collection_cta mob">{{ block.settings.collection_button }}</a>
+                  {% endif %}
+                
+                      </div>
+                    </a>  
+                  </div>           
+                </div>
+              {% endfor %}
+              <!-- Slides -->
+            </div>
+          
+            
+            {% if section.settings.use_dots != blank %}
+             <!-- If we need pagination -->
+              <div class="swiper-pagination swiper-pagination-{{section.id}}"></div>
+             <!-- If we need scrollbar -->
+            {% endif %}
+           
+          </div>
+       </swiper-slider>
+        {% if section.settings.bottom_cta_content != blank %}
+        <div class="collection_bottom"><a href="{{ section.settings.bottom_cta_url }}" class="collection_cta btn">{{ section.settings.bottom_cta_content }}</a></div>
+          {% endif %}
+      </div>
+    </div>
+  
+  {% style %}
+
+  #shopify-section-{{ section.id }}{
+    padding-top: {{section.settings.padding_top}}px;
+    padding-bottom:{{section.settings.padding_bottom}}px;
+    background-color:{{section.settings.bg_color}};
+  }
+  @media(max-width:768px){
+    #shopify-section-{{ section.id }}{
+      padding-top: {{section.settings.padding_top_mob}}px;
+      padding-bottom:{{section.settings.padding_bottom_mob}}px;
+    }
+  }
+
+  .category_collection_product .section_header{
+    text-align:{{section.settings.head_align}};
+  }
+    
+ .category_collection_product .container {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding : 0 15px;
+}
+
+.category_collection_product .product_block {
+  position: relative;
+}
+
+.collection_product_wrapper .collectionBlock-image {
+  border-radius: 12px;
+  border: 1px solid #DAE0E0;
+  margin-bottom: 16px;
+}
+
+.collection_product_wrapper .collectionBlock-image .collectionBlock-hover {
+  background-size: cover;
+}
+
+.category_collection_product .product_title {
+  position: absolute;
+  bottom: 25px;
+  left: 24px;
+}
+
+.category_collection_product .product_block .product_image img {
+  width: 100%;
+}
+
+.category_collection_product .swiper-container:not(.swiper-initialized) .swiper-slide {
+  width: 25%;
+  padding: 12px;
+}
+
+.category_collection_product .collection_bottom {
+  text-align: center;
+  margin-top: 36px;
+}
+
+.category_collection_product {
+  position: relative;
+  padding-top: 0px;
+  padding-bottom: 20px;
+  -webkit-animation: fade-in 1.5s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+  animation: fade-in 1.5s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+}
+
+.category_collection_product .collection_bottom .collection_cta,
+    .category_collection_product .collection_bottom{
+  display: none;
+}
+
+ .category_collection_product .section_sub_header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+}
+  .category_collection_product{
+       margin-bottom: 40px;
+ }
+@media (max-width:767px) {
+   .category_collection_product .slider-icons,
+   .collection_cta.Desktop{
+    display: none;
+  }
+   .category_collection_product .collection_bottom .collection_cta{
+    display:block;
+  }
+
+  .category_collection_product .product_block {
+    width: 85%;
+    margin: auto;
+  }
+
+  .category_collection_product .collection_bottom {
+        padding: 0 15px;
+    margin-top: 32px;
+  }
+
+  .category_collection_product .collection_bottom>a{
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 24px;
+    letter-spacing: 3px;
+    padding: 12px;
+  }
+   .category_collection_product{
+    padding-bottom:0;
+  }
+
+  .category_collection_product .collection_bottom {
+    display: block;
+  }
+
+  .category_collection_product {
+    padding-bottom: 40px;
+    padding-top: 25px;
+  }
+
+  .category_collection_product .product_title {
+    left: 0;
+    width: 100%;
+    text-align: center;
+  }
+
+  .category_collection_product .product_block h3 {
+    font-size: 28px;
+  }
+
+  .category_collection_product .swiper-container:not(.swiper-initialized) .swiper-slide {
+    width: 50%;
+    padding: 12px;
+  }
+}
+
+@-webkit-keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+/* collection slider css  */
+/* Catagory */
+.category_collection_product .product_block>a {
+  display: flex;
+  flex-direction: column;
+}
+
+.category_collection_product .product_title {
+  position: static;
+}
+
+.category_collection_product .product_title h3 {
+  color: #000;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 32px;
+  text-align: center;
+  margin-top: 13px;
+  margin-bottom: 0px;
+}
+
+.section_sub_header {
+  text-align: left;
+  display: block;
+}
+
+/* about-us-page slider */
+  .about-us-page.category_collection_product .section_sub_header{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 40px;
+    }
+    .about-us-page.category_collection_product .product_title h3{
+          font-family: Poppins, sans-serif;
+    font-size: 18px;
+    line-height: 26px;
+    }
+   .about-us-page.category_collection_product .blog-date{
+    color: #000;
+    font-family: Poppins;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 22px;
+    text-align: center;
+   }
+
+@media screen and (max-width:767px) {
+  .category_collection_product .container{
+    padding:0;
+  }
+
+  .category_collection_product .product_block {
+    width: 100%;
+  }
+
+   .collection_bottom .collection_cta.mob {
+    display: block;
+  }
+   .category_collection_product .section_sub_header{
+            justify-content: center;
+          margin-bottom: 0px;
+  }
+   /* about-us-page css */
+  .about-us-page.category_collection_product .collection_cta.Desktop{
+    display:none;
+  }
+  .about-us-page.category_collection_product .section_sub_header{
+        justify-content: center;
+    margin-bottom: 0px;
+  }
+}
+  
+  {% endstyle %}
+  
+  {% schema %}
+  {
+    "name": "Collection Slider",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Slider settings"
+      },
+      {
+           "type" : "text",
+          "id" : "custom_class",
+          "label": "Costom Class"  
+          },
+      {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Top Padding Desktop",
+      "min":0,
+      "max":80,
+      "step": 1,
+      "default":0
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Bottom Padding Desktop",
+      "default": 0,
+      "min":0,
+      "step": 1,
+      "max":80
+    },
+       {
+      "type": "range",
+      "id": "padding_top_mob",
+      "label": "Top padding Mobile",
+      "min":0,
+      "max":80,
+      "step": 1,
+      "default":0
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mob",
+      "label": "Bottom padding Mobile",
+      "default": 0,
+      "min":0,
+      "step": 1,
+      "max":80
+    },
+    {
+        "type" : "color",
+        "id" : "bg_color",
+        "label": "Background Color"  
+    },
+    {
+      "type": "select",
+      "id": "head_align",
+      "label": "Head Alignment",
+      "default": "left",
+        "options": [
+          {
+            "value": "left",
+            "label": "Left"
+          },
+          {
+            "value": "center",
+            "label": "Centered"
+          },
+          {
+            "value": "right",
+            "label": "Right"
+          }
+        ]
+    },
+    {
+           "type" : "text",
+          "id" : "main_heading",
+          "label": "Heading"  
+    },
+      {
+           "type" : "text",
+          "id" : "main_description",
+          "label": "Description"  
+          },
+            {
+           "type" : "text",
+          "id" : "main_sub_heading",
+          "label": "Sub Heading"  
+          },
+       {
+           "type" : "url",
+          "id" : "bottom_cta_url",
+          "label": "Mobile Bottom CTA URL"  
+          },
+          {
+           "type" : "text",
+          "id" : "bottom_cta_content",
+          "label": "Mobile Bottom CTA Text" 
+          },
+      {
+        "type": "range",
+        "id": "slide_per_view",
+        "min": 0,
+        "max": 20,
+        "step": 1,
+        "label": "Slide Per View",
+        "default": 3
+      },
+      {
+        "type": "checkbox",
+        "id": "use_navigation",
+        "label": "__Use navigation?",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "use_thumnails",
+        "label": "__Use thumbnails?",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "use_dots",
+        "label": "__Use dots?"
+      },
+      {
+        "type": "textarea",
+        "id": "responsive",
+        "label": "== Responsive",
+        "default": "{\n  \"0\": {\n    \"slidesPerView\": 2.5,\n    \"spaceBetween\": 10\n  },\n  \"1200\": {\n    \"slidesPerView\": 5,\n    \"spaceBetween\": 30\n  }\n}"
+      },
+       {
+           "type" : "url",
+          "id" : "collection_url_desk",
+          "label": "Collection URL Desk"  
+          },
+         
+           {
+           "type" : "text",
+          "id" : "collection_button_desk",
+          "label": "Button Desktop" 
+          }
+    ],
+  
+    "blocks": [
+      {
+        "name": "Collection Product",
+        "type": "collection_product",
+        "settings": [
+          {
+          "type" : "image_picker",
+          "id" : "collection_image",
+          "label": "Collection Image"
+         },
+          {
+           "type" : "url",
+          "id" : "collection_url",
+          "label": "Collection URL"  
+          },
+          {
+           "type" : "text",
+          "id" : "blog-date",
+          "label": "Blog Date" 
+          },
+          {
+           "type" : "text",
+          "id" : "collection_title",
+          "label": "Collection Title" 
+          },
+           {
+           "type" : "text",
+          "id" : "collection_button",
+          "label": "Button" 
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Collection Slider",
+        "settings": {}
+      }
+    ]
+  }
+  {% endschema %}
+
+{% javascript %}
+document.querySelector(".slider-icons .swiper-button-prev").addEventListener("click", function(){
+    document.querySelector(".category_collection_product swiper-slider .swiper-button-prev").click();
+})
+
+document.querySelector(".slider-icons .swiper-button-next").addEventListener("click", function(){
+    document.querySelector(".category_collection_product swiper-slider .swiper-button-next").click();
+  
+})
+{% endjavascript%}

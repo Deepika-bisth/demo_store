@@ -1,0 +1,390 @@
+<!-- /sections/page.logo-list-with-slider.liquid -->
+<div class="logo-list-slider {{ section.settings.custom_class }}">
+    <div class="container">
+      <div class="section_header">
+        {% if section.settings.main_heading != blank %}
+          <h2 class="main_heading">{{ section.settings.main_heading }}</h2>
+        {% endif %}
+      </div>
+                
+      <div class="slider-icons">
+          {% if section.settings.use_navigation != blank %}
+             <div class="swiper-button-prev sw-button-prev-{{section.id}}"></div>
+             <div class="swiper-button-next sw-button-next-{{section.id}}"></div>
+           {% endif %}
+         </div>
+      {%- assign responsive_ = section.settings.responsive | strip_newlines | json | remove: '\t' | remove: '\' | remove: ' '
+        | replace: '"{"','{"' | replace: '}}"','}}' -%}
+         {%- assign items_ = responsive_ | split: '"slidesPerView":' | last | split: ',' | first | plus: 0 -%}
+      <swiper-slider>
+         <div class="swiper collection_swiper swiper-container"
+          data-dots="{{section.settings.use_dots}}" 
+          data-nav = "{{section.settings.use_navigation}}"
+          data-prev-el=".sw-button-prev-{{section.id}}"
+          data-next-el=".sw-button-next-{{section.id}}" 
+          data-pagination=".swiper-pagination-{{section.id}}"
+          data-breakpoints='{{responsive_}}' 
+          data-thumbs ="{{section.settings.use_thumnails}}"
+          data-thumbs-id = ".swiper-thumbs-{{section.id}}"
+          data-direction = "horizontal"
+           data-mousewheel= "true"
+           data-allow-touch-move="true"
+           
+        >
+          <!-- Additional required wrapper -->
+          <div class="swiper-wrapper">
+            {%- for block in section.blocks -%}
+              <div class="swiper-slide logo-list-slide {{ block.settings.custom_class }}">
+                          <div class="slide-content-block">
+                            {%- if block.settings.image != blank -%}
+                               <img src="{{ block.settings.image | img_url: 'x382' }}" alt="logo" width="51px" height="51px">
+                            {% endif %} 
+                            {% if block.settings.content != blank %}
+                                <p class="main-head">{{ block.settings.content }}</p>
+                            {% endif %}
+                            {% if block.settings.des != blank %}
+                                <p class="des">{{ block.settings.des }}</p>
+                            {% endif %}
+                          </div>                
+              </div>
+            {%- endfor -%}
+        </div>
+      </div>
+    </swiper-slider>
+      {% if section.settings.use_dots != blank %}
+           <!-- If we need pagination -->
+            <div class="swiper-pagination swiper-pagination-{{section.id}}"></div>
+           <!-- If we need scrollbar -->
+          {% endif %}
+     {% if section.settings.cta_text_1 != blank %}
+      <div class="btn-container">
+        <a href="{{ section.settings.cta_link_1 }}" class="btn">{{ section.settings.cta_text_1 }}</a>
+        {% if section.settings.cta_text_2 != blank %}
+          <a href="{{ section.settings.cta_link_2 }}">{{ section.settings.cta_text_2 }}</a>
+        {% endif %}
+      </div>
+  {% endif %}
+    </div>
+</div>
+
+{% style %}
+#shopify-section-{{ section.id }} {
+    background-color:{{section.settings.bg_color}};
+}
+#shopify-section-{{ section.id }} .slide-content-block p.main-head {
+    font-size:{{section.settings.font_size}}px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 26px;
+    margin-top: 15px;
+    text-align: center;
+}
+  
+#shopify-section-{{ section.id }} .slide-content-block .des {
+    font-size:{{section.settings.font_size_des}}px;
+    color: #121212;
+    text-align: center;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 22px; /* 122.222% */
+  }
+  
+.logo-list-slider {
+    text-align: center;
+    padding: 27px;
+}
+
+.slide-content-block {
+    align-items: center;
+    gap: 0px;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+}
+  .slide-content-block{
+    align-items: center;
+    gap:16px;
+    justify-content: center;
+  }
+ 
+  .logo-list-slider .main_heading{
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+    text-align:center;
+    text-transform: uppercase;
+  }
+  
+  .logo-list-slider .main_heading,
+  .logo-list-slider .slide-content-block p{
+    color:{{section.settings.content_color}};
+  }
+  .logo-list-slider .logo-list-slide.first-item .slide-content-block p{
+    font-size: 22px;
+    font-weight: 800;
+    line-height: 32px;
+    text-transform: uppercase;
+    margin: 0;
+  }
+  .logo-list-slider .btn-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 39px;
+  }
+  .logo-list-slider .btn-container .btn{
+    background-color:{{section.settings.btn_bg}};
+    max-width:{{section.settings.btn_width}}px;
+  }
+
+  /* new  */
+ .testmonial-review-slider {
+     padding: 60px 0px;
+}
+.testmonial-review-slider .btn-container{
+    margin-top: 30px;
+}
+.testmonial-review-slider .swiper-backface-hidden .swiper-slide {
+    border-radius: 20px;
+    background: #FFF;
+    padding: 20px;
+}
+.testmonial-review-slider p{
+      margin-top: 0px !important;
+      margin-bottom: 0px;
+}
+  
+.testmonial-review-slider .btn-container a:nth-child(2) {
+   color: var(--Secondary, #273D88);
+    font-family: "Acherus Grotesque";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 20px;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+}
+  
+  .logo-list-slider .btn-container .btn {
+    padding: 13px 57px !important;
+    line-height: normal;
+}
+  
+.testmonial-review-slider .container .des {
+   color:{{section.settings.des_color}};
+}
+  
+  @media(max-width:768px){
+    .testmonial-review-slider .btn-container {
+    flex-direction: column !important;
+    gap: 20px;
+ }
+    .testmonial-review-slider .swiper-pagination-bullets.swiper-pagination-horizontal{
+      position: unset;
+    }
+
+    .testmonial-review-slider .swiper-pagination-bullet-active {
+    background-color: #273D88;
+}
+    
+  }
+  
+  @media (min-width:769px){
+     .logo-list-slider .main_heading{
+       display:none;
+     }
+    .testmonial-review-slider .swiper-backface-hidden .swiper-slide{
+           min-height: 500px;
+    }
+  }
+  @media (max-width:768px){
+  .logo-list-slider .container {
+        padding: 0 0px;
+    }
+
+    .logo-list-slider {
+        text-align: center;
+    }
+    #shopify-section-{{ section.id }} .slide-content-block p.main-head{
+      font-size:{{section.settings.font_size_mob}}px;
+      line-height:normal;
+      margin-top:0;
+    }
+     #shopify-section-{{ section.id }} .slide-content-block p.des{
+        font-size: 14px;
+        line-height: 20px;
+        margin-top: 0;
+    } 
+    
+  }
+  @media (max-width: 767px){
+  .logo-list-slider {
+    padding: 27px 15px;
+ }
+  }
+{% endstyle %}
+{% schema %}
+{
+  "name": "logo list slider",
+  "tag": "section",
+  "settings": [
+    {
+           "type" : "text",
+          "id" : "custom_class",
+          "label": "Custom Class"  
+    },
+    {
+        "type": "color",
+        "id": "bg_color",
+        "label": "Background"
+      },
+    {
+           "type" : "text",
+          "id" : "main_heading",
+          "label": "Heading"  
+    },
+     {
+           "type" : "color",
+          "id" : "content_color",
+          "label": "Text Color"  
+    },
+    {
+        "type": "range",
+        "id": "font_size",
+            "min": 12,
+            "max": 24,
+            "step": 1,
+            "unit": "px",
+            "label": "Font size",
+            "default": 16
+    },
+     {
+        "type": "range",
+        "id": "font_size_mob",
+            "min": 12,
+            "max": 24,
+            "step": 1,
+            "unit": "px",
+            "label": "Font size Mobile",
+            "default": 14
+    },
+    {
+      "type":"header",
+      "content":"Block Content Caption"
+    },
+     {
+           "type" : "color",
+          "id" : "des_color",
+          "label": "Text Color des"  
+    },
+     {
+        "type": "range",
+        "id": "font_size_des",
+            "min": 12,
+            "max": 24,
+            "step": 1,
+            "unit": "px",
+            "label": "Font size des",
+            "default": 16
+        },
+    {
+        "type": "url",
+        "id": "cta_link_1",
+        "label": "Primary Button Link"
+      },
+      {
+        "type": "text",
+        "id": "cta_text_1",
+        "label": "Primary Button Text"
+      },
+      {
+            "type": "color",
+            "id": "btn_bg",
+            "label": "Button Color"
+      },
+      {
+        "type": "text",
+        "id": "btn_width",
+        "label": "Button Size"
+      },
+      {
+        "type": "url",
+        "id": "cta_link_2",
+        "label": "Link"
+      },
+      {
+        "type": "text",
+        "id": "cta_text_2",
+        "label": "Text"
+      },
+     {
+        "type": "range",
+        "id": "slide_per_view",
+        "min": 0,
+        "max": 20,
+        "step": 1,
+        "label": "Slide Per View",
+        "default": 3
+      },
+      {
+        "type": "checkbox",
+        "id": "use_navigation",
+        "label": "__Use navigation?",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "use_thumnails",
+        "label": "__Use thumbnails?",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "use_dots",
+        "label": "__Use dots?"
+      },
+      {
+        "type": "textarea",
+        "id": "responsive",
+        "label": "== Responsive",
+        "default": "{\n  \"0\": {\n    \"slidesPerView\": 2.5,\n    \"spaceBetween\": 10\n  },\n  \"1200\": {\n    \"slidesPerView\": 5,\n    \"spaceBetween\": 30\n  }\n}"
+      }
+  ],
+  "blocks": [
+    
+    {
+      "type": "column",
+      "name": "item",
+      "settings": [
+        {
+           "type" : "text",
+          "id" : "custom_class",
+          "label": "Custom Class"  
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "item image"
+        },
+        {
+           "type" : "text",
+          "id" : "content",
+          "label": "Content"  
+        },
+        {
+           "type" : "textarea",
+          "id" : "des",
+          "label": "Description"  
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "logo list slider"
+    }
+  ]
+}
+{% endschema %}

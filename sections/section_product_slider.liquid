@@ -1,0 +1,385 @@
+ <div class="category_collection_product {{ section.settings.custom_class }}">
+      <div class="container">
+        <div class="section_header">
+          {% if section.settings.main_heading != blank %}
+            <h2 class="main_heading">{{ section.settings.main_heading }}</h2>
+          {% endif %}
+       
+        </div>
+        <div class="section_sub_header">
+         
+             {% if section.settings.collection_button_desk != blank %}
+                <a href="{{ section.settings.collection_url_desk }}" class="collection_cta Desktop btn">{{ section.settings.collection_button_desk }}</a>
+            {% endif %}
+            <div class="slider-icons">
+              {% if section.settings.use_navigation != blank %}
+               <div class="swiper-button-prev sw-button-prev-{{section.id}}"><img src="https://cdn.shopify.com/s/files/1/0827/2317/6745/files/chevron_right_FILL0_wght400_GRAD0_opsz48_4.png?v=1707737573"></div>
+               <div class="swiper-button-next sw-button-next-{{section.id}}"><img src="https://cdn.shopify.com/s/files/1/0273/4250/4036/files/Frame_176257.svg?v=1709018889"></div>
+             {% endif %}
+            </div>
+        </div>
+                  
+
+        {%- assign responsive_ = section.settings.responsive | strip_newlines | json | remove: '\t' | remove: '\' | remove: ' '
+          | replace: '"{"','{"' | replace: '}}"','}}' -%}
+           {%- assign items_ = responsive_ | split: '"slidesPerView":' | last | split: ',' | first | plus: 0 -%}
+        <swiper-slider>
+           <div class="swiper collection_swiper swiper-container"
+            data-dots="{{section.settings.use_dots}}" 
+            data-nav = "{{section.settings.use_navigation}}"
+            data-prev-el=".sw-button-prev-{{section.id}}"
+            data-next-el=".sw-button-next-{{section.id}}" 
+            data-pagination=".swiper-pagination-{{section.id}}"
+            data-breakpoints='{{responsive_}}' 
+            data-thumbs ="{{section.settings.use_thumnails}}"
+            data-thumbs-id = ".swiper-thumbs-{{section.id}}"
+            data-direction = "horizontal"
+             data-mousewheel= "true"
+             data-allow-touch-move="true"
+             
+          >
+            <!-- Additional required wrapper -->
+            <div class="swiper-wrapper">
+              <!-- Slides -->
+              {% for block in section.blocks %}
+                <div class="swiper-slide">
+                  <div class="product_block">
+                    <a href="{{ block.settings.collection_url }}">
+                       <div class="product_image ">
+                       <img src="{{ block.settings.collection_image | img_url:'master' }}"> 
+                     </div>
+
+                {% if block.settings.collection_button != blank %}
+                        <a href="{{ block.settings.collection_url }}" class="collection_cta mob">{{ block.settings.collection_button }}</a>
+                  {% endif %}
+                    </a>  
+                  </div>           
+                </div>
+              {% endfor %}
+              <!-- Slides -->
+            </div>
+          
+            
+            {% if section.settings.use_dots != blank %}
+             <!-- If we need pagination -->
+              <div class="swiper-pagination swiper-pagination-{{section.id}}"></div>
+             <!-- If we need scrollbar -->
+            {% endif %}
+           
+          </div>
+       </swiper-slider>
+      </div>
+    </div>
+  
+  {% style %}
+
+ #shopify-section-{{ section.id }}{
+    padding-top: {{section.settings.padding_top}}px;
+    padding-bottom:{{section.settings.padding_bottom}}px;
+    background-color:{{section.settings.bg_color}};
+    }
+    
+    @media(max-width:768px){
+    #shopify-section-{{ section.id }}{
+      padding-top: {{section.settings.padding_top_mob}}px;
+      padding-bottom:{{section.settings.padding_bottom_mob}}px;
+    }
+    }
+    
+    .category_collection_product .section_header{
+    text-align:{{section.settings.head_align}};
+    }
+    
+.category_collection_product {
+    position: relative;
+    padding-top: 0px;
+    -webkit-animation: fade-in 1.5s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+    animation: fade-in 1.5s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+}
+
+.category_collection_product .section_sub_header {
+    margin-bottom: 45px;
+}
+
+
+@-webkit-keyframes fade-in {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.category_collection_product swiper-slider .swiper-slide {
+    height: auto;
+}
+
+.category_collection_product .section_header>h2{
+    font-family: Gotham;
+    color: {{section.settings.heading_color}};
+    font-size: 32px;
+    font-weight: 350;
+    line-height: 40px;
+    margin:0;
+  }
+
+.category_collection_product .section_header>h2>p {
+    margin: 0;
+}
+
+
+.category_collection_product .slider-icons .swiper-button-next {
+    right: 146px;
+    max-width: 32px;
+    width: 100%;
+    top: 56%;
+
+}
+
+.category_collection_product .slider-icons .swiper-button-prev {
+    display: none;
+}
+    .category_collection_product .slider-icons .swiper-button-next:after {
+    display: none;
+}
+    .category_collection_product  .swiper-slide>.product_block .product_image,
+      .category_collection_product  .swiper-slide>.product_block .product_image>img{
+        height: 100%;
+    }
+
+@media(min-width:768px){
+  .category_collection_product{
+        margin-left: 80px;
+    padding-left: 20px;
+  }
+}
+@media screen and (max-width:767px) {
+    .category_collection_product .container {
+        padding: 0;
+    }
+
+    .category_collection_product .section_header>h2>p {
+        text-align: left;
+    }
+
+    .category_collection_product .slider-icons .swiper-button-next {
+        right: 44px;
+    }
+
+    .category_collection_product .section_sub_header {
+        margin-bottom: 30px;
+    }
+
+
+    .category_collection_product {
+        padding-bottom: 0;
+        margin-left: 30px;
+    }
+
+    .category_collection_product .section_header>h2 {
+        font-size: 30px;
+    }
+}
+  {% endstyle %}
+  
+  {% schema %}
+  {
+    "name": "Product Slider",
+    "settings": [
+      {
+        "type" : "color",
+        "id" : "bg_color",
+        "label": "Background Color"  
+    },
+      {
+        "type": "header",
+        "content": "Slider settings"
+      },
+      {
+           "type" : "text",
+          "id" : "custom_class",
+          "label": "Costom Class"  
+          },
+      {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Top Padding Desktop",
+      "min":0,
+      "max":100,
+      "step": 1,
+      "default":0
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Bottom Padding Desktop",
+      "default": 0,
+      "min":0,
+      "step": 1,
+      "max":80
+    },
+       {
+      "type": "range",
+      "id": "padding_top_mob",
+      "label": "Top padding Mobile",
+      "min":0,
+      "max":80,
+      "step": 1,
+      "default":0
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mob",
+      "label": "Bottom padding Mobile",
+      "default": 0,
+      "min":0,
+      "step": 1,
+      "max":80
+    },
+    {
+      "type": "select",
+      "id": "head_align",
+      "label": "Head Alignment",
+      "default": "left",
+        "options": [
+          {
+            "value": "left",
+            "label": "Left"
+          },
+          {
+            "value": "center",
+            "label": "Centered"
+          },
+          {
+            "value": "right",
+            "label": "Right"
+          }
+        ]
+    },
+    {
+           "type" : "richtext",
+          "id" : "main_heading",
+          "label": "Heading"  
+    },
+      {
+           "type" : "color",
+          "id" : "heading_color",
+          "label": "Heading Color"  
+    },
+     
+            {
+           "type" : "text",
+          "id" : "main_sub_heading",
+          "label": "Sub Heading"  
+          },
+       {
+           "type" : "url",
+          "id" : "bottom_cta_url",
+          "label": "Mobile Bottom CTA URL"  
+          },
+         
+      {
+        "type" : "color",
+        "id" : "btn_color",
+        "label": "Button Color"  
+      },
+      {
+        "type" : "color",
+        "id" : "btn_text_color",
+        "label": "Button Text"  
+      },
+      {
+        "type": "range",
+        "id": "slide_per_view",
+        "min": 0,
+        "max": 20,
+        "step": 1,
+        "label": "Slide Per View",
+        "default": 3
+      },
+      {
+        "type": "checkbox",
+        "id": "use_navigation",
+        "label": "__Use navigation?",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "use_thumnails",
+        "label": "__Use thumbnails?",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "use_dots",
+        "label": "__Use dots?"
+      },
+      {
+        "type": "textarea",
+        "id": "responsive",
+        "label": "== Responsive",
+        "default": "{\n  \"0\": {\n    \"slidesPerView\": 2.5,\n    \"spaceBetween\": 10\n  },\n  \"1200\": {\n    \"slidesPerView\": 5,\n    \"spaceBetween\": 30\n  }\n}"
+      },
+       {
+           "type" : "url",
+          "id" : "collection_url_desk",
+          "label": "Collection URL Desk"  
+          },
+         
+           {
+           "type" : "text",
+          "id" : "collection_button_desk",
+          "label": "Button Desktop" 
+          }
+    ],
+  
+    "blocks": [
+      {
+        "name": "Collection Product",
+        "type": "collection_product",
+        "settings": [
+          {
+          "type" : "image_picker",
+          "id" : "collection_image",
+          "label": "Collection Image"
+         },
+          {
+           "type" : "url",
+          "id" : "collection_url",
+          "label": "Collection URL"  
+          }
+         
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Product Slider",
+        "settings": {}
+      }
+    ]
+  }
+  {% endschema %}
+
+{% javascript %}
+document.querySelector(".slider-icons .swiper-button-prev").addEventListener("click", function(){
+    document.querySelector(".category_collection_product swiper-slider .swiper-button-prev").click();
+})
+
+document.querySelector(".slider-icons .swiper-button-next").addEventListener("click", function(){
+    document.querySelector(".category_collection_product swiper-slider .swiper-button-next").click();
+  
+})
+{% endjavascript%}

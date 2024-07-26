@@ -1,0 +1,393 @@
+<section class="slider_with_text">
+  <div class="container ">
+    <div class="swiper text_slider ">
+      <div class="swiper-wrapper">
+        {% for block in section.blocks %}
+          {% if block.type == 'image_block' %}
+            <div class="swiper-slide">
+              <div class="slider-card">
+                <img class="slide_img" src="{{ block.settings.image | img_url: 'master' }}">
+              </div>
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+      <div id="js-prev1" class="swiper-button-prev"></div>
+      <div id="js-next1" class="swiper-button-next"></div>
+      <!-- If we need pagination -->
+      <div class="swiper-pagination"></div>
+    </div>
+
+    <div class="slider-content accordian-container">
+      <div class="accordian-question">
+        <ul class="question-list">
+          {% for block in section.blocks %}
+            {% if block.type == 'accordion_item' %}
+              <li class="box{% if forloop.first %} active{% endif %}" data-id="option-{{ forloop.index }}">
+                <div class="question">
+                  <p class="question__text">
+                   {{ block.settings.question }}
+                  
+                  </p>
+                </div>
+                <div class="answer">
+                  {{ block.settings.answer }}
+                </div>
+              </li>
+            {% endif %}
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Slider with text",
+  "class": "slider_txt",
+  "settings": [
+    {
+      "type": "text",
+      "id": "main-heading",
+      "label": "Main Heading"
+    }, {
+      "type": "text",
+      "id": "sub_head",
+      "label": "Sub Heading"
+    }, {
+      "type": "text",
+      "id": "txt",
+      "label": "Text"
+    }, {
+      "type": "text",
+      "id": "point1",
+      "label": "Point 1"
+    },
+     {
+      "type": "text",
+      "id": "point2",
+      "label": "Point 2"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "image_block",
+      "name": "Image block",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        }
+      ]
+    },
+    {
+      "type": "accordion_item",
+      "name": "Accordion Item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "question",
+          "label": "Accordian Totle"
+        },
+        {
+          "type": "richtext",
+          "id": "answer",
+          "label": "Accordian Description"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Slider with text"
+    }
+  ]
+}
+{% endschema %}
+
+{% stylesheet %}
+
+  .accordian-container .accordian-question .question {
+    color: var(--colors-Black, #121212);
+    font-family: Assistant;
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 45px; /* 125% */
+}
+
+.accordian-container .accordian-question li {
+    list-style: none;
+  padding-top: 20px;
+}
+
+.accordian-container .accordian-question .answer h3 {
+    color: var(--colors-Black, #121212);
+    font-family: Assistant;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+.accordian-container .accordian-question li .question {
+    border-bottom: 1px solid var(--colors-Black, #121212);
+}
+
+.accordian-container .accordian-question .answer > p {
+    color: var(--colors-Black, #121212);
+    font-family: Assistant;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px; /* 150% */
+}
+
+.accordian-container .accordian-question p.question__text {
+    margin: 20px 0;
+}
+
+.accordian-container .accordian-question li.active .question {
+    color: var(--colors-Black, #121212);
+    font-family: Assistant;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 45px; /* 112.5% */
+}
+
+.accordian-container .accordian-question li .answer {
+    display: none;
+}
+
+.accordian-container .accordian-question li.active .answer {
+    display: block;
+}
+  
+   .slider_with_text .container {
+    max-width: 1440px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    padding: 40px 0px;
+
+  }
+
+  .slider_with_text .container>div.text_slider {
+    max-width: 40%;
+    padding-bottom: 40px;
+  }
+
+  .slider_with_text .container>div.slider-content {
+    max-width: 50%;
+  }
+
+  .slider_with_text .slider-card>img {
+    width: 100%;
+  }
+
+  .slider_with_text .slider-card {
+    max-width: 363px;
+    margin: auto;
+  }
+
+  .slider_with_text #js-prev1,
+  .slider_with_text #js-next1 {
+    display: block;
+  }
+
+  .slider_with_text #js-next1 {
+    right: 14px;
+  }
+
+  .slider_with_text #js-prev1:after {
+    content: "";
+    background: url("https://cdn.shopify.com/s/files/1/0757/8147/2559/files/button1_9a355aa3-1d88-4688-8381-ae95fa27f24d.png?v=1709295459");
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 36px;
+    height: 36px;
+    z-index: 13;
+    position: absolute;
+  }
+
+
+  .slider_with_text #js-next1:after {
+    content: "";
+    background: url("https://cdn.shopify.com/s/files/1/0757/8147/2559/files/button_5.png?v=1709291245");
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 36px;
+    height: 36px;
+    z-index: 13;
+    position: absolute;
+  }
+
+  .slider_with_text .swiper-pagination>span {
+    width: 100px;
+    height: 4px;
+    border-radius: 100px;
+  }
+
+  .slider_with_text .swiper-pagination .swiper-pagination-bullet-active {
+    opacity: unset;
+    background: #000;
+  }
+
+.accordian-container .accordian-question {
+    max-width: 540px;
+}
+
+
+  @media(min-width:1024px){
+     .slider_with_text .slider-content{
+          padding-right: 80px;
+    }
+
+    .slider_with_text h2{
+          max-width: 525px;
+    }
+    .slider_with_text .slider-content p.text{
+          max-width: 564px;
+    }
+
+  }
+  .accordian-container ul.question-list {
+    padding-left: 0;
+}
+  @media(max-width:768px) {
+
+.accordian-container .accordian-question li.active .question {
+    font-size: 28px;
+    line-height: normal;
+    margin-top: 10px;
+    padding-bottom: 12px;
+    margin-bottom: 15px;
+}
+    .slider_with_text .container {
+      flex-direction: column;
+          padding-bottom: 0;
+    }
+
+    .slider_with_text .container>div.text_slider,
+    .slider_with_text .container>div.slider-content {
+      max-width: 100%;
+    }
+
+    .slider_with_text .swiper-pagination>span {
+      width: 78px;
+    }
+
+    .accordian-container .accordian-question .question {
+      font-size: 28px;
+      line-height: normal;
+      margin-top: 10px;
+      padding-bottom: 12px;
+      margin-bottom: 10px;
+    }
+    .accordian-container .accordian-question li{
+      padding-top: 12px;
+    }
+
+    .accordian-container .accordian-question .answer h3 {
+      margin: 28px 0 0;
+    font-family: Assistant;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: normal;
+    color: #121212;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    }
+
+    .slider_with_text #js-prev1 {
+      left: 1px;
+    }
+
+    .slider_with_text .container>div.text_slider {
+      padding-bottom: 30px !important;
+    }
+
+    .slider_with_text .container>div.text_slider,
+    .slider_with_text .container>div.slider-content {
+      padding: 0 15px;
+    }
+  }
+{% endstylesheet %}
+
+                      
+<script>
+
+
+var cards = document.querySelectorAll('.slider_with_text .accordian-question .question-list .box');
+
+function waitForSwiper(trigger) {
+    var interval = setInterval(function() {
+        if (typeof Swiper !== 'undefined') {
+            clearInterval(interval);
+            trigger();
+        }
+    }, 100);
+    setTimeout(function() {
+        clearInterval(interval);
+    }, 15000);
+}
+
+function textSlider() {
+    waitForSwiper(function() {
+        var swiper = new Swiper('.text_slider', {
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            breakpoints: {
+                769: {
+                    slidesPerView: 1,
+                    pagination: {
+                        el: ".swiper-pagination",
+                        clickable: true,
+                    }
+                },
+                0: {
+                    slidesPerView: 1,
+                    spaceBetween: 10,
+                    pagination: {
+                        el: ".swiper-pagination",
+                        clickable: true,
+                    }
+                },
+            },
+            on: {
+                slideChange: function() {
+                    var activeIndex = this.realIndex;
+                    cards.forEach(function(card) {
+                        card.classList.remove('active');
+                    });
+                    cards[activeIndex].classList.add('active');
+                }
+            }
+        });
+
+        // Add click event listeners to all question elements
+        document.querySelectorAll('.slider_with_text .accordian-container .question').forEach(function(question, index) {
+            question.addEventListener('click', function() {
+                // Remove 'active' class from all 'question' elements
+                document.querySelectorAll('.accordian-container .active').forEach(function(activeQuestion) {
+                    activeQuestion.classList.remove('active');
+                });
+                // Add 'active' class to the clicked question's parent container
+                this.parentNode.classList.add('active');
+
+                // Activate the corresponding slide in the swiper
+                swiper.slideTo(index);
+            });
+        });
+    });
+}
+
+textSlider();
+</script>
