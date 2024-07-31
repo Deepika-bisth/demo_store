@@ -37,6 +37,22 @@
     },
     "header": {
       "type": "header",
+      "blocks": {
+        "mega_menu_rL4YU6": {
+          "type": "mega_menu",
+          "settings": {
+            "trigger_link_name": "Home",
+            "mega_menu_title": "CBD skincare redefined",
+            "mega_menu_description": "Experience the transformative potential of CBD, infused with the rich heritage of the South.",
+            "mega_menu_button_text": "SHOP ALL",
+            "mega_menu_button_link": "shopify:\/\/collections\/all",
+            "mega_menu_linklist": "main-menu"
+          }
+        }
+      },
+      "block_order": [
+        "mega_menu_rL4YU6"
+      ],
       "settings": {
         "logo_position": "middle-left",
         "menu": "main-menu",
