@@ -30,7 +30,7 @@
                 >
                   {{- link.title | escape -}}
                 </span>
-                {% render 'icon-caret' %}
+                {% render 'icon-caret_menu' %}
               </summary>
               <div
                 id="MegaMenu-Content-{{ forloop.index }}"
@@ -45,19 +45,37 @@
                         <p>{{ block.settings.mega_menu_description }}</p>
                         <a href="{{ block.settings.mega_menu_button_link }}" class="button">{{ block.settings.mega_menu_button_text }}</a>
                       </div>
-                      <div class="menu-products">
+                      {% if block.settings.enable_products %}
+                        <div class="menu-products">
                         {%- for childlink in link.links -%}
                           {%- for subchildlink in childlink.links -%}
                             <div class="product-item">
                               <a href="{{ subchildlink.url }}">
-                                <img src="{{ subchildlink.object.featured_image | img_url: 'medium' }}" alt="{{ subchildlink.title }}">
+                                <div class="image-container">
+                                  {% if subchildlink.object.featured_image != blank %}
+                                    <img src="{{ subchildlink.object.featured_image | img_url: 'medium' }}" alt="{{ subchildlink.title }}">
+                                  {% endif %}
+                                    {% if subchildlink.object.metafields.custom.badge_bestseller.value != blank %}
+                                      <span class="best-seller">{{ subchildlink.object.metafields.custom.badge_bestseller.value }}</span>
+                                    {% endif %}
+                                    {% assign product_tag = subchildlink.object.metafields.custom.product_feature.value %}
+                                    {% if product_tag != blank %}
+                                        <div class="product-tag">
+                                        {% for tag in product_tag %}
+                                          <span>{{ tag }}</span>
+                                        {% endfor %}
+                                      </div>
+                                    {% endif %}
+                                </div>
                                 <h4>{{ subchildlink.object.title | escape }}</h4>
-                                <p>{{ subchildlink.object.excerpt }}</p>
+                                <p>{{ subchildlink.object.metafields.custom.product_subtitle }}</p>
+                                
                               </a>
                             </div>
                           {%- endfor -%}
                         {%- endfor -%}
                       </div>
+                      {% endif %}
                     </div>
                   {%- endif -%}
                 {%- endfor -%}
