@@ -48,6 +48,12 @@
             "heading": "Quick links",
             "menu": "footer"
           }
+        },
+        "brand_information_JHkTTw": {
+          "type": "brand_information",
+          "settings": {
+            "show_social": true
+          }
         }
       },
       "block_order": [
@@ -55,7 +61,8 @@
         "link_list_mq9KYC",
         "link_list_pyL6xb",
         "link_list_4iDpPk",
-        "link_list_niQ7Y4"
+        "link_list_niQ7Y4",
+        "brand_information_JHkTTw"
       ],
       "settings": {
         "color_scheme": "background-1",
