@@ -58,10 +58,7 @@
   .list-menu--inline {
     display: inline-flex;
     flex-wrap: wrap;
-  }
-
-  summary.list-menu__item {
-    padding-right: 2.7rem;
+    gap:36px;
   }
 
   .list-menu__item {
@@ -95,9 +92,6 @@
     margin-bottom: {{ section.settings.margin_bottom | times: 0.75 | round: 0 }}px;
   }
   
-.header__menu-item span{
-   color: #000;
-}
   .header__icon, .header__icon--cart .icon{
         max-width: 26px;
         height: 26px;
@@ -470,12 +464,15 @@
   menuItems.forEach(function(item, index) {
     var dropdown = item.nextElementSibling;
     if (index === 0) {
+       
       dropdown.style.display = 'block'; // Ensure the first dropdown is open by default
+      item.classList.add('active');
     } else {
       dropdown.style.display = 'none'; // Ensure other dropdowns are hidden by default
     }
 
     item.addEventListener('click', function(event) {
+      item.classList.toggle('active');
       event.preventDefault();
       if (dropdown.style.display === 'block') {
         dropdown.style.display = 'none';
@@ -761,10 +758,10 @@
           "default": "/collections/all"
         },
         {
-          "type": "link_list",
-          "id": "mega_menu_linklist",
-          "label": "Mega Menu Link List",
-          "default": "main-menu"
+          "type": "checkbox",
+          "id": "enable_products",
+          "label": "Enable Products",
+          "default": true
         }
       ]
     }
