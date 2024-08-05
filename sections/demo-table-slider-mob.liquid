@@ -1,0 +1,260 @@
+<section class="certification-table">
+    <div class="container">
+        <div class="heading-content">
+            {% if section.settings.section_heading != blank %}
+              <h2>{{ section.settings.section_heading }}</h2>
+            {% endif %}
+            {% if section.settings.section_description != blank %}
+              {{ section.settings.section_description }}
+            {% endif %}
+        </div>
+        <div class="benefit-cards">
+            {% for block in section.blocks %}
+              <div class="benefit-card">
+                <div class="icon">
+                  <img src="{{ block.settings.icon_image }}" alt="{{ block.settings.icon_alt_text }}">
+                </div>
+                <div class="content">
+                  <h3>{{ block.settings.card_title }}</h3>
+                  <p>{{ block.settings.card_description }}</p>
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+    </div>
+   
+</section>
+
+{% schema %}
+{
+  "name": "certification-table",
+  "tag": "section",
+  "class": "certification-table",
+  "limit": 1,
+  "settings": [
+    {
+      "type": "color",
+        "id": "section_background",
+        "label": "Background Color"
+    },
+    {
+        "type": "text",
+        "id": "section_padding",
+        "label": "Paddings (top right bottom left)",
+        "info": "6rem 6rem 0 6rem"
+      },
+      {
+        "type": "text",
+        "id": "section_padding_mob",
+        "label": "Paddings (top right bottom left)",
+        "info": "6rem 6rem 0 6rem"
+      },
+    {
+      "type": "text",
+      "id": "section_heading",
+      "label": "Section Heading"
+    },
+       {
+      "type": "richtext",
+      "id": "section_description",
+      "label": "Section Description"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "benefit_card",
+      "name": "Benefit Card",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon_image",
+          "label": "Icon Image"
+        },
+        {
+          "type": "text",
+          "id": "icon_alt_text",
+          "label": "Icon Alt Text",
+          "default": "Halal Certified"
+        },
+        {
+          "type": "text",
+          "id": "card_title",
+          "label": "Card Title",
+          "default": "Halal Certified"
+        },
+        {
+          "type": "textarea",
+          "id": "card_description",
+          "label": "Card Description",
+          "default": "At Boxed Halal, we take immense pride in bringing you the finest, premium-sourced halal meat. We have made it our mission to ensure that every cut is ethically sourced from farms that strictly adhere to our mission."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "certification-table",
+      "settings": {
+        "title": "Life With Boxed Halal is Better",
+        "subtitle": "Thoughtfully curated with a variety of hand-picked, premium-quality halal meats."
+      },
+      "blocks": [
+        {
+          "type": "benefit_card",
+          "settings": {
+            "icon_image": "https://i.ibb.co/DrfRJjG/halal-certified.png",
+            "icon_alt_text": "Halal Certified",
+            "card_title": "Halal Certified",
+            "card_description": "At Boxed Halal, we take immense pride in bringing you the finest, premium-sourced halal meat. We have made it our mission to ensure that every cut is ethically sourced from farms that strictly adhere to our mission."
+          }
+        },
+        {
+          "type": "benefit_card",
+          "settings": {
+            "icon_image": "https://i.ibb.co/yW8dPkv/humanely-raised.png",
+            "icon_alt_text": "Humanely Raised",
+            "card_title": "Humanely Raised",
+            "card_description": "Boxed Halal offers 100% grass-fed, grain-finished meat, promising superior taste and nutrition. This method ensures healthier meat with an optimal balance of Omega-3 and Omega-6 fatty acids, plus more vitamins and minerals. Not only is it good for you, it's also good for the environment, promoting natural biodiversity and reducing carbon footprints."
+          }
+        },
+        {
+          "type": "benefit_card",
+          "settings": {
+            "icon_image": "https://i.ibb.co/NsnvkVR/hand-slaughtered.png",
+            "icon_alt_text": "Hand-Slaughtered",
+            "card_title": "Hand-Slaughtered",
+            "card_description": "Boxed Halal proudly adheres to Zabiha, the Islamic ritual of hand-slaughtering, in the preparation of our Halal meat. This method underscores our respect for the sanctity of life and commitment to animal welfare. During Zabiha, each animal is humanely treated, individually blessed, and swiftly slaughtered by a Muslim, ensuring minimal suffering."
+          }
+        },
+        {
+          "type": "benefit_card",
+          "settings": {
+            "icon_image": "https://i.ibb.co/8gLz3zS/no-hormones-antibiotics.png",
+            "icon_alt_text": "No Hormones or Antibiotics",
+            "card_title": "No Hormones or Antibiotics",
+            "card_description": "Our meat is guaranteed hormone and antibiotic-free, demonstrating our dedication to both the health of our consumers and the welfare of the animals. By avoiding antibiotics and hormones, we ensure that our meat maintains its natural taste and nutritional value, reducing potential health risks linked with such additives. Furthermore, this approach underlines our commitment to sustainable and humane farming practices."
+          }
+        },
+        {
+          "type": "benefit_card",
+          "settings": {
+            "icon_image": "https://i.ibb.co/DK1HZ5Z/customer-satisfaction.png",
+            "icon_alt_text": "100% Customer Satisfaction",
+            "card_title": "100% Customer Satisfaction",
+            "card_description": "As the founder of Boxed Halal, my personal favorite cut of meat is the delectable ribeye steak, particularly when it comes to the exquisite Wagyu variety. An interesting fact about me is that I'm an avid pilot who takes great pleasure in soaring through the skies on my weekends!"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+{%style%}
+.certification-table .heading-content h2,
+.certification-table .heading-content p{
+  text-align: {{section.settings.text_align}};
+}
+.certification-table .heading-content h2{
+    font-size:{{section.settings.heading_size}}px;
+    color: #133233;
+    text-align: center;
+    font-family: SemplicitaPro;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 42px;
+    margin-bottom: 20px;
+}
+.certification-table .heading-content p{
+    font-size:{{section.settings.text_size}}px;
+     margin-bottom: 60px !important;
+    color: var(--main, #133233);
+    text-align: center;
+    font-family: SemplicitaPro;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+}
+.certification-table .boxed-halal-section {
+  background-color: #f9fafc;
+  padding: 2rem;
+  text-align: center;
+}
+
+.certification-table .section-header h2 {
+  color: #1a1a1a;
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.certification-table .section-header p {
+  color: #7a7a7a;
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+}
+
+.certification-table .benefit-cards {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.certification-table .benefit-card {
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  max-width: 700px;
+  width: 100%;
+}
+
+.certification-table .benefit-card .icon {
+  flex: 0 0 60px;
+  margin-right: 1rem;
+}
+
+.certification-table .benefit-card .icon img {
+  max-width: 100%;
+}
+
+.certification-table .benefit-card .content {
+  text-align: left;
+}
+
+.certification-table .benefit-card h3 {
+  color: #1a1a1a;
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.certification-table .benefit-card p {
+  color: #7a7a7a;
+  font-size: 1rem;
+}
+#shopify-section-{{ section.id }}{
+      background-color: {{section.settings.section_background}};
+      padding:{{section.settings.section_padding}};
+}
+
+@media (min-width: 768px) {
+#shopify-section-{{ section.id }}{
+      padding:{{section.settings.section_padding_mob}};
+}
+  .certification-table .benefit-cards {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .certification-table .benefit-card {
+    margin: 0.5rem;
+    max-width: 45%;
+  }
+}
+
+{%endstyle%}
