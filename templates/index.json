@@ -1,1 +1,191 @@
-{"sections":{"demo_image_with_text_X4PLm3":{"type":"demo-image-with-text","settings":{"custom_class":"","image":"shopify:\/\/shop_images\/image_2c098551-2e14-4cff-9dfd-bafdd9f1dfdf.png","enable_feature":true,"heading":"Enjoy Fresher, Healthier Water at Home","description":"Transform your home’s water today with easy-to-install water filters. Crystal-clear, contaminant-free water in every sip.","layout":"right","content_align":"left","padding_top":40,"padding_bottom":40,"image_position_mobile":true,"padding_top_mob":20,"padding_bottom_mob":20,"cta_link":"shopify:\/\/collections","cta_text":"Shop Best Sellers","btn_width":"300px","bg_color":"#ecebe8","heading_color":"#334fb4","description_color":"#242833","cta_bg":"#334fb4"}},"demo_featured_category_slider_fDd6Je":{"type":"demo-featured-category-slider","blocks":{"collection_product_dxppRA":{"type":"collection_product","settings":{"collection_image":"shopify:\/\/shop_images\/MutedLilacSunsKnottedGown2-PhotoRoom.jpg","category_title":"Newborn","collection_url":""}},"collection_product_z4Ap3t":{"type":"collection_product","settings":{"collection_image":"shopify:\/\/shop_images\/MutedLilacRainbowKnottedGown2-PhotoRoom.jpg","category_title":"New","collection_url":""}},"collection_product_EnCcx8":{"type":"collection_product","settings":{"collection_image":"shopify:\/\/shop_images\/FinnleighKnottedGown_c.png","category_title":"Fitting Cloth","collection_url":""}},"collection_product_rHNX8d":{"type":"collection_product","settings":{"collection_image":"shopify:\/\/shop_images\/DaintyDarlingKnottedGownwhitebackgroundcopyCompressed.jpg","category_title":"Best Seller","collection_url":""}}},"block_order":["collection_product_dxppRA","collection_product_z4Ap3t","collection_product_EnCcx8","collection_product_rHNX8d"],"settings":{"custom_class":"","main_heading":"<h5>Featured Categories<\/h5>","main_sub_heading":"<p>Join thousands of happy customers who have made the switch to the purest, safest water. Don’t compromise on quality—choose our water filters for peace of mind and optimal health.<\/p>","collection_url_desk":"","collection_button_desk":"","bottom_cta_url":"","header_base_size":51,"padding_top":0,"padding_bottom":0,"padding_top_mob":0,"padding_bottom_mob":0,"head_align":"center","heading_color":"#121212","bg_color":"rgba(0,0,0,0)","btn_text_color":"","btn_color":"","slide_per_view":3,"use_navigation":false,"use_thumnails":true,"use_dots":false,"responsive":"{\n  \"0\": {\n    \"slidesPerView\": 2.5,\n    \"spaceBetween\": 10\n  },\n  \"1200\": {\n    \"slidesPerView\": 3,\n    \"spaceBetween\": 30\n  }\n}"}}},"order":["demo_image_with_text_X4PLm3","demo_featured_category_slider_fDd6Je"]}
+/*
+* ------------------------------------------------------------
+* IMPORTANT: The contents of this file are auto-generated.
+*
+* This file may be updated by the Shopify admin theme editor
+* or related systems. Please exercise caution as any changes
+* made to this file may be overwritten.
+* ------------------------------------------------------------
+*/
+{
+  "sections": {
+    "demo_image_with_text_X4PLm3": {
+      "type": "demo-image-with-text",
+      "settings": {
+        "custom_class": "",
+        "image": "shopify:\/\/shop_images\/image_2c098551-2e14-4cff-9dfd-bafdd9f1dfdf.png",
+        "enable_feature": true,
+        "heading": "Enjoy Fresher, Healthier Water at Home",
+        "description": "Transform your home’s water today with easy-to-install water filters. Crystal-clear, contaminant-free water in every sip.",
+        "layout": "right",
+        "content_align": "left",
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "image_position_mobile": true,
+        "padding_top_mob": 20,
+        "padding_bottom_mob": 20,
+        "cta_link": "shopify:\/\/collections",
+        "cta_text": "Shop Best Sellers",
+        "btn_width": "300px",
+        "bg_color": "#ecebe8",
+        "heading_color": "#334fb4",
+        "description_color": "#242833",
+        "cta_bg": "#334fb4"
+      }
+    },
+    "demo_featured_category_slider_fDd6Je": {
+      "type": "demo-featured-category-slider",
+      "blocks": {
+        "collection_product_dxppRA": {
+          "type": "collection_product",
+          "settings": {
+            "collection_image": "shopify:\/\/shop_images\/MutedLilacSunsKnottedGown2-PhotoRoom.jpg",
+            "category_title": "Newborn",
+            "collection_url": ""
+          }
+        },
+        "collection_product_z4Ap3t": {
+          "type": "collection_product",
+          "settings": {
+            "collection_image": "shopify:\/\/shop_images\/MutedLilacRainbowKnottedGown2-PhotoRoom.jpg",
+            "category_title": "New",
+            "collection_url": ""
+          }
+        },
+        "collection_product_EnCcx8": {
+          "type": "collection_product",
+          "settings": {
+            "collection_image": "shopify:\/\/shop_images\/FinnleighKnottedGown_c.png",
+            "category_title": "Fitting Cloth",
+            "collection_url": ""
+          }
+        },
+        "collection_product_rHNX8d": {
+          "type": "collection_product",
+          "settings": {
+            "collection_image": "shopify:\/\/shop_images\/DaintyDarlingKnottedGownwhitebackgroundcopyCompressed.jpg",
+            "category_title": "Best Seller",
+            "collection_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "collection_product_dxppRA",
+        "collection_product_z4Ap3t",
+        "collection_product_EnCcx8",
+        "collection_product_rHNX8d"
+      ],
+      "settings": {
+        "custom_class": "",
+        "main_heading": "<h5>Featured Categories<\/h5>",
+        "main_sub_heading": "<p>Join thousands of happy customers who have made the switch to the purest, safest water. Don’t compromise on quality—choose our water filters for peace of mind and optimal health.<\/p>",
+        "collection_url_desk": "",
+        "collection_button_desk": "",
+        "bottom_cta_url": "",
+        "header_base_size": 51,
+        "header_base_size_mobile": 26,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_top_mob": 0,
+        "padding_bottom_mob": 0,
+        "head_align": "center",
+        "heading_color": "#121212",
+        "bg_color": "rgba(0,0,0,0)",
+        "btn_text_color": "",
+        "btn_color": "",
+        "slide_per_view": 3,
+        "use_navigation": false,
+        "use_thumnails": true,
+        "use_dots": false,
+        "responsive": "{\n  \"0\": {\n    \"slidesPerView\": 2.5,\n    \"spaceBetween\": 10\n  },\n  \"1200\": {\n    \"slidesPerView\": 3,\n    \"spaceBetween\": 30\n  }\n}"
+      }
+    },
+    "demo_logo_slider_approach_2_taqT4d": {
+      "type": "demo-logo-slider-approach-2",
+      "blocks": {
+        "column_Ukgn4H": {
+          "type": "column",
+          "settings": {
+            "custom_class": "",
+            "content": "Halal Certified",
+            "des": "At Boxed Halal, we take immense pride in bringing you the finest, premium-sourced halal meat. We have made it our mission to ensure that every cut is ethically sourced from farms that strictly adhere to our mission."
+          }
+        },
+        "column_dj6HmT": {
+          "type": "column",
+          "settings": {
+            "custom_class": "",
+            "content": "Halal Certified",
+            "des": "At Boxed Halal, we take immense pride in bringing you the finest, premium-sourced halal meat. We have made it our mission to ensure that every cut is ethically sourced from farms that strictly adhere to our mission."
+          }
+        },
+        "column_trQXW6": {
+          "type": "column",
+          "settings": {
+            "custom_class": "",
+            "content": "Halal Certified",
+            "des": "At Boxed Halal, we take immense pride in bringing you the finest, premium-sourced halal meat. We have made it our mission to ensure that every cut is ethically sourced from farms that strictly adhere to our mission."
+          }
+        },
+        "column_YxC7DE": {
+          "type": "column",
+          "settings": {
+            "custom_class": "",
+            "content": "Halal Certified",
+            "des": "At Boxed Halal, we take immense pride in bringing you the finest, premium-sourced halal meat. We have made it our mission to ensure that every cut is ethically sourced from farms that strictly adhere to our mission."
+          }
+        },
+        "column_Y6LXiK": {
+          "type": "column",
+          "settings": {
+            "custom_class": "",
+            "content": "Halal Certified",
+            "des": "At Boxed Halal, we take immense pride in bringing you the finest, premium-sourced halal meat. We have made it our mission to ensure that every cut is ethically sourced from farms that strictly adhere to our mission."
+          }
+        },
+        "column_n6t8DJ": {
+          "type": "column",
+          "settings": {
+            "custom_class": "",
+            "content": "Halal Certified",
+            "des": "At Boxed Halal, we take immense pride in bringing you the finest, premium-sourced halal meat. We have made it our mission to ensure that every cut is ethically sourced from farms that strictly adhere to our mission."
+          }
+        }
+      },
+      "block_order": [
+        "column_Ukgn4H",
+        "column_dj6HmT",
+        "column_trQXW6",
+        "column_YxC7DE",
+        "column_Y6LXiK",
+        "column_n6t8DJ"
+      ],
+      "settings": {
+        "custom_class": "",
+        "bg_color": "",
+        "main_heading": "",
+        "content_color": "",
+        "font_size": 16,
+        "font_size_mob": 14,
+        "des_color": "",
+        "font_size_des": 16,
+        "cta_link_1": "",
+        "cta_text_1": "",
+        "btn_bg": "",
+        "btn_width": "",
+        "cta_link_2": "",
+        "cta_text_2": "",
+        "slide_per_view": 3,
+        "use_navigation": true,
+        "use_thumnails": true,
+        "use_dots": false,
+        "responsive": "{\n  \"0\": {\n    \"slidesPerView\": 2.5,\n    \"spaceBetween\": 10\n  },\n  \"1200\": {\n    \"slidesPerView\": 5,\n    \"spaceBetween\": 30\n  }\n}"
+      }
+    }
+  },
+  "order": [
+    "demo_image_with_text_X4PLm3",
+    "demo_featured_category_slider_fDd6Je",
+    "demo_logo_slider_approach_2_taqT4d"
+  ]
+}
