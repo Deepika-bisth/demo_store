@@ -179,7 +179,7 @@
         "use_navigation": true,
         "use_thumnails": true,
         "use_dots": false,
-        "responsive": "{\n  \"0\": {\n    \"slidesPerView\": 2.5,\n    \"spaceBetween\": 10\n  },\n  \"1200\": {\n    \"slidesPerView\": 5,\n    \"spaceBetween\": 30\n  }\n}"
+        "responsive": "{\n  \"0\": {\n    \"slidesPerView\": 1.5,\n    \"spaceBetween\": 10,\n\"centeredSlides\": \"true\",\n\"loop\":\"true\"\n  },\n  \"1200\": {\n    \"slidesPerView\": 5,\n    \"spaceBetween\": 30\n  }\n}"
       }
     }
   },
